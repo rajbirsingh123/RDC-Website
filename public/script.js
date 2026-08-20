@@ -1,3 +1,59 @@
+// Highlight whichever nav link matches the current page, so visitors can see
+// where they are. Works from any page depth and doesn't depend on any single
+// page's HTML having the right class hardcoded -- it resolves each link's
+// real URL and compares it to the current one.
+(function initActiveNav() {
+  var navLinks = document.querySelectorAll(".navbar-nav .nav-link, .navbar-nav .dropdown-item");
+  if (!navLinks.length) return;
+
+  var normalize = function (pathname) {
+    return pathname.replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+  };
+
+  var apply = function () {
+    var currentPath = normalize(location.pathname);
+
+    navLinks.forEach(function (link) {
+      link.classList.remove("active");
+      link.removeAttribute("aria-current");
+    });
+
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href || href === "#" || href.charAt(0) === "#") return;
+
+      var linkUrl;
+      try {
+        linkUrl = new URL(href, location.href);
+      } catch (e) {
+        return;
+      }
+      if (normalize(linkUrl.pathname) !== currentPath) return;
+      // A link with a #section fragment only counts as the active one when
+      // its fragment matches the current URL -- otherwise every in-page
+      // anchor on this page (e.g. "Our Story" and "Why RDC" both on About
+      // Us) would light up together even though neither is where the
+      // visitor actually is.
+      if (linkUrl.hash && linkUrl.hash !== location.hash) return;
+
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+
+      var parentDropdown = link.closest(".nav-item.dropdown");
+      if (parentDropdown) {
+        var toggle = parentDropdown.querySelector(":scope > .dropdown-toggle");
+        if (toggle && toggle !== link) {
+          toggle.classList.add("active");
+          toggle.setAttribute("aria-current", "page");
+        }
+      }
+    });
+  };
+
+  apply();
+  window.addEventListener("hashchange", apply);
+})();
+
 const money = new Intl.NumberFormat("en-CA", {
   style: "currency",
   currency: "CAD",
@@ -479,6 +535,14 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
   widget.className = "live-chat";
   widget.setAttribute("aria-label", "Royal Den Capital live chat assistant");
   widget.innerHTML = `
+    <div class="chat-attention" aria-hidden="true">
+      <img src="${basePath}assets/rdc-lion-wave-chat.gif" alt="">
+      <div class="chat-typing-bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
     <button class="chat-launcher" type="button" aria-label="Open live chat" aria-expanded="false">
       <i class="bi bi-chat-dots-fill"></i>
       <span>Live Chat</span>
@@ -959,14 +1023,13 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
   });
 })();
 
-// Floating "back to top" button, injected once so every page gets it without
-// per-page markup. Appears after the visitor scrolls a bit, smooth-scrolls
-// back to the top on click.
+// Count-up animation for headline stats (e.g. "25+", "95%"). Opt-in via
+// data-count-to on the element; runs once, respects prefers-reduced-motion.
 (function initBackToTop() {
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "back-to-top";
-  btn.setAttribute("aria-label", "Back to top");
+  btn.setAttribute("aria-label", "Go to top");
   btn.innerHTML = '<i class="bi bi-arrow-up"></i>';
   document.body.appendChild(btn);
 
@@ -994,8 +1057,6 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
   applyState();
 })();
 
-// Count-up animation for headline stats (e.g. "25+", "95%"). Opt-in via
-// data-count-to on the element; runs once, respects prefers-reduced-motion.
 (function initCountUp() {
   const targets = document.querySelectorAll("[data-count-to]");
   if (!targets.length) return;
