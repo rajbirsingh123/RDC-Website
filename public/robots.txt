@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /apply/thank-you/
+
+Sitemap: https://royaldencapital.ca/sitemap.xml
