@@ -3,9 +3,9 @@
    Generated file - edit the source JSON in the translation workflow, not this file by hand. */
 window.RDC_I18N = {
   "fr": {
-    "common_topstrip_license": "Courtier hypothécaire | N° de permis : M08000511, Alliance Hypothécaire ON N° 10530",
+    "common_topstrip_license": "N° de permis : M08000511, Alliance Hypothécaire ON N° 10530",
     "common_nav_home": "Accueil",
-    "common_nav_mortgages": "Hypothèques",
+    "common_nav_mortgages": "Solutions hypothécaires",
     "common_nav_mortgage_services": "Services hypothécaires",
     "common_nav_calculators": "Calculatrices",
     "common_nav_about_us": "À propos de nous",
@@ -49,7 +49,7 @@ window.RDC_I18N = {
     "footer_copyright": "Copyright (c) 2026 | Royal Den Capital. Tous droits réservés.",
     "footer_terms": "Conditions générales",
     "footer_privacy": "Politique de confidentialité",
-    "footer_license_line": "Courtier hypothécaire | N° de permis : M08000511, Alliance Hypothécaire ON N° 10530 - Propriété et exploitation indépendantes",
+    "footer_license_line": "N° de permis : M08000511, Alliance Hypothécaire ON N° 10530 - Propriété et exploitation indépendantes",
     "home_hero_title": "De meilleurs taux. Des approbations plus rapides. <span>Des résultats réels.</span>",
     "home_hero_lead": "Royal Den Capital compare les meilleurs prêteurs du Canada pour vous obtenir la bonne hypothèque, sans tracas, que ce soit pour l'achat d'une maison, le renouvellement, le refinancement ou le financement d'entreprise.",
     "home_hero_license": "Courtier hypothécaire – N° de permis : M08000511, Alliance Hypothécaire ON N° 10530",
@@ -1267,9 +1267,9 @@ window.RDC_I18N = {
     "au_story_tagline_line": "Bâtir. Protéger. Grandir."
   },
   "pa": {
-    "common_topstrip_license": "ਮੌਰਗੇਜ ਬ੍ਰੋਕਰ | ਲਾਇਸੈਂਸ ਨੰ: M08000511, ਮੌਰਗੇਜ ਅਲਾਇੰਸ ON ਲਾਇਸੈਂਸ ਨੰ. 10530",
+    "common_topstrip_license": "ਲਾਇਸੈਂਸ ਨੰ: M08000511, ਮੌਰਗੇਜ ਅਲਾਇੰਸ ON ਲਾਇਸੈਂਸ ਨੰ. 10530",
     "common_nav_home": "ਹੋਮ",
-    "common_nav_mortgages": "ਮੌਰਗੇਜ",
+    "common_nav_mortgages": "ਮੌਰਗੇਜ ਹੱਲ",
     "common_nav_mortgage_services": "ਮੌਰਗੇਜ ਸੇਵਾਵਾਂ",
     "common_nav_calculators": "ਕੈਲਕੁਲੇਟਰ",
     "common_nav_about_us": "ਸਾਡੇ ਬਾਰੇ",
@@ -1313,7 +1313,7 @@ window.RDC_I18N = {
     "footer_copyright": "ਕਾਪੀਰਾਈਟ (c) 2026 | Royal Den Capital। ਸਾਰੇ ਅਧਿਕਾਰ ਰਾਖਵੇਂ ਹਨ।",
     "footer_terms": "ਨਿਯਮ ਅਤੇ ਸ਼ਰਤਾਂ",
     "footer_privacy": "ਗੋਪਨੀਯਤਾ ਨੀਤੀ",
-    "footer_license_line": "ਮੌਰਗੇਜ ਬ੍ਰੋਕਰ | ਲਾਇਸੈਂਸ ਨੰ: M08000511, ਮੌਰਗੇਜ ਅਲਾਇੰਸ ON ਲਾਇਸੈਂਸ ਨੰ. 10530 - ਸੁਤੰਤਰ ਤੌਰ 'ਤੇ ਮਾਲਕੀ ਅਤੇ ਸੰਚਾਲਿਤ",
+    "footer_license_line": "ਲਾਇਸੈਂਸ ਨੰ: M08000511, ਮੌਰਗੇਜ ਅਲਾਇੰਸ ON ਲਾਇਸੈਂਸ ਨੰ. 10530 - ਸੁਤੰਤਰ ਤੌਰ 'ਤੇ ਮਾਲਕੀ ਅਤੇ ਸੰਚਾਲਿਤ",
     "home_hero_title": "ਬਿਹਤਰ ਦਰਾਂ। ਤੇਜ਼ ਮਨਜ਼ੂਰੀਆਂ। <span>ਅਸਲ ਨਤੀਜੇ।</span>",
     "home_hero_lead": "Royal Den Capital ਕੈਨੇਡਾ ਦੇ ਚੋਟੀ ਦੇ ਰਿਣਦਾਤਿਆਂ ਦੀ ਤੁਲਨਾ ਕਰਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਹਾਨੂੰ ਘਰ ਖਰੀਦਦਾਰਾਂ, ਨਵਿਆਉਣ, ਰੀਫਾਈਨੈਂਸਿੰਗ ਅਤੇ ਵਪਾਰਕ ਵਿੱਤ ਲਈ, ਬਿਨਾਂ ਕਿਸੇ ਪਰੇਸ਼ਾਨੀ ਦੇ ਸਹੀ ਮੌਰਗੇਜ ਮਿਲੇ।",
     "home_hero_license": "ਮੌਰਗੇਜ ਬ੍ਰੋਕਰ – ਲਾਇਸੈਂਸ ਨੰ: M08000511, ਮੌਰਗੇਜ ਅਲਾਇੰਸ ON ਲਾਇਸੈਂਸ ਨੰ. 10530",

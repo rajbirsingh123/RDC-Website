@@ -552,15 +552,304 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .hero-section::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: url("assets/hero-compact.jpg") center center / cover no-repeat;
-  filter: saturate(1.04) contrast(1.02);
+  inset: -4%;
+  background:
+    var(--rdc-paper-texture),
+    radial-gradient(circle at 86% 10%, rgba(242, 193, 42, 0.16), transparent 42%),
+    radial-gradient(circle at 6% 92%, rgba(13, 92, 184, 0.12), transparent 46%),
+    linear-gradient(180deg, #ffffff 0%, #f3f7fc 62%, #eef3fa 100%);
+  background-size: 22px 22px, auto, auto, auto;
   transform: translate3d(var(--hero-shift-x, 0px), var(--hero-parallax, 0px), 0);
+  animation: premiumBackgroundFlow 20s ease-in-out infinite alternate;
   z-index: 0;
 }
 
 .hero-section::after {
   content: none;
+}
+
+/* Real drone footage of the Toronto skyline as the homepage hero
+   background, in place of the flat paper-texture layer. */
+.hero-section--video::before {
+  content: none;
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* No tint, no wash -- the footage runs completely untouched, true color.
+   Legibility comes entirely from the text treatment itself (a proper dark
+   halo behind white letters, the way film subtitles stay readable over
+   any footage) rather than coloring the video to suit the text. */
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: none;
+}
+
+.hero-section.hero-section--video .hero-copy {
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-section.hero-section--video h1,
+.hero-section.hero-section--video h1 span {
+  color: var(--rdc-white);
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.5),
+    0 12px 34px rgba(0, 0, 0, 0.4);
+}
+
+.hero-section.hero-section--video h1 span {
+  color: var(--rdc-gold);
+}
+
+.hero-section.hero-section--video .hero-lead {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.45),
+    0 2px 5px rgba(0, 0, 0, 0.55),
+    0 5px 16px rgba(0, 0, 0, 0.45);
+}
+
+.hero-section.hero-section--video .hero-license {
+  border-color: rgba(255, 255, 255, 0.32);
+  color: var(--rdc-white);
+  background: rgba(6, 26, 56, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-section.hero-section--video .hero-license i {
+  color: var(--rdc-gold);
+}
+
+.hero-blueprint-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(calc(var(--hero-shift-x, 0px) * -1.6), 0, 0);
+}
+
+.hero-blueprint-scene .bp-scene-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bp-back-building {
+  fill: var(--rdc-blue);
+  fill-opacity: 0.055;
+  stroke: none;
+}
+
+.bp-front-building {
+  fill: none;
+  stroke: var(--rdc-blue);
+  stroke-opacity: 0.13;
+  stroke-width: 1.4;
+}
+
+.bp-building-window {
+  fill: none;
+  stroke: var(--rdc-blue);
+  stroke-opacity: 0.16;
+  stroke-width: 1;
+}
+
+.bp-trace-line {
+  fill: none;
+  stroke: var(--rdc-gold);
+  stroke-opacity: 0.4;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.bp-sketch-path {
+  fill: none;
+  stroke: var(--rdc-gold-dark);
+  stroke-opacity: 0.55;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bp-house-detail {
+  stroke-width: 1.8;
+  stroke-opacity: 0.45;
+}
+
+.bp-dot {
+  fill: var(--rdc-gold);
+}
+
+.hero-blueprint-scene[data-scene-variant="compact"] .bp-sketch-path {
+  stroke-opacity: 0.32;
+}
+
+.hero-blueprint-scene[data-scene-variant="compact"] .bp-dot {
+  fill: var(--rdc-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-blueprint-scene {
+    transform: none;
+  }
+}
+
+/* Soft atmospheric glow blobs behind the hero copy -- an accent borrowed
+   from moody fintech hero treatments, tuned down to sit quietly on RDC's
+   light paper background instead of a dark photo. */
+.hero-section .hero-glow-accent {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.hero-section .hero-glow-accent--a {
+  top: -12%;
+  left: -6%;
+  width: 46%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(13, 92, 184, 0.14), transparent 68%);
+}
+
+.hero-section .hero-glow-accent--b {
+  right: -8%;
+  bottom: -18%;
+  width: 40%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(242, 193, 42, 0.16), transparent 70%);
+}
+
+/* Animated RDC crest, bottom-right of the homepage hero. Sketches the
+   crest's own iconography piece by piece -- twin trees, the home between
+   them, growth bars, the rising arrow, the person beside it -- inside a
+   gold shield ring, then crossfades into the real logo artwork, holds, and
+   erases to loop. */
+.hero-logo-story {
+  position: absolute;
+  right: clamp(20px, 3.4vw, 48px);
+  bottom: clamp(80px, 9.6vw, 114px);
+  z-index: 1;
+  width: clamp(108px, 9.8vw, 152px);
+  aspect-ratio: 227 / 242;
+  pointer-events: none;
+}
+
+/* A soft dark backdrop keeps the crest legible over whatever part of the
+   video happens to be behind it, without boxing it in. */
+.hero-section--video .hero-logo-story::before {
+  content: "";
+  position: absolute;
+  inset: -34%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(3, 10, 24, 0.38), transparent 72%);
+  z-index: -1;
+}
+
+.hero-logo-glow {
+  position: absolute;
+  inset: -38%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 193, 42, 0.38), rgba(13, 92, 184, 0.14) 55%, transparent 72%);
+  filter: blur(7px);
+  opacity: 0;
+}
+
+.hero-logo-mark {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(13, 92, 184, 0.3));
+}
+
+.hero-logo-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-logo-ring {
+  fill: none;
+  stroke: var(--rdc-gold);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-crest-trunk {
+  fill: none;
+  stroke: var(--rdc-gold-dark);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.hero-crest-leaf {
+  fill: var(--rdc-gold);
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.hero-crest-house {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-crest-bar {
+  fill: var(--rdc-gold);
+  opacity: 0.95;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.hero-crest-arrow {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-crest-person {
+  fill: #ffffff;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+@media (max-width: 991.98px) {
+  .hero-logo-story {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo-glow {
+    animation: none;
+  }
 }
 
 .hero-section > .container-xl {
@@ -724,7 +1013,9 @@ html[lang="pa"] .navbar-nav .btn-gold {
   color: var(--rdc-white);
   font-size: 22px;
   text-shadow: 0 2px 12px rgba(3, 12, 30, 0.4);
-  background: var(--rdc-blue);
+  background: rgba(9, 34, 74, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-side .hero-points {
@@ -736,14 +1027,14 @@ html[lang="pa"] .navbar-nav .btn-gold {
   max-width: 270px;
   margin: 0;
   padding: 16px 18px 18px;
-  border: 1px solid rgba(13, 92, 184, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-top: 3px solid var(--rdc-gold);
   border-radius: 0 0 8px 8px;
   color: rgba(255, 255, 255, 0.92);
-  background: var(--rdc-blue);
-  box-shadow: 0 18px 38px rgba(13, 92, 184, 0.18);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: rgba(9, 34, 74, 0.42);
+  box-shadow: 0 18px 38px rgba(3, 12, 30, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   overflow: hidden;
   transform: translate3d(var(--hero-card-x, 0px), var(--hero-card-y, 0px), 0);
   transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -756,6 +1047,133 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .hero-side .hero-points:hover {
   border-color: rgba(242, 193, 42, 0.72);
   box-shadow: 0 22px 48px rgba(5, 24, 55, 0.32);
+}
+
+/* The card keeps a slow, low-amplitude glow going at rest so it never
+   settles into a flat, static block once its entrance is done. */
+/* Specificity-bumped (repeated class) so this reliably wins over the
+   later general heroFadeUp / delay-only rules regardless of source order. */
+.hero-side .hero-points.hero-points {
+  animation: heroFadeUp 0.7s ease 0.2s both, heroCardGlow 5s ease-in-out 0.9s infinite;
+}
+
+@keyframes heroCardGlow {
+  0%, 100% {
+    box-shadow: 0 18px 38px rgba(3, 12, 30, 0.28);
+  }
+  50% {
+    box-shadow: 0 18px 38px rgba(3, 12, 30, 0.28), 0 0 26px rgba(242, 193, 42, 0.16);
+  }
+}
+
+/* Each "why RDC" line arrives on its own beat, gold top border draws in
+   first, and every checkmark pops a moment after its own line lands --
+   reads as reasons being ticked off one by one, not a card that just
+   appears. */
+.hero-side .hero-points::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--rdc-gold);
+  animation: heroBorderDraw 0.5s ease 0.32s both;
+}
+
+@keyframes heroBorderDraw {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.hero-points > span {
+  opacity: 0;
+  animation: heroPointIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-points > span:nth-child(1) { animation-delay: 0.44s; }
+.hero-points > span:nth-child(2) { animation-delay: 0.56s; }
+.hero-points > span:nth-child(3) { animation-delay: 0.68s; }
+.hero-points > span:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes heroPointIn {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-points > span i {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: heroCheckPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-points > span:nth-child(1) i { animation-delay: 0.58s; }
+.hero-points > span:nth-child(2) i { animation-delay: 0.7s; }
+.hero-points > span:nth-child(3) i { animation-delay: 0.82s; }
+.hero-points > span:nth-child(4) i { animation-delay: 0.94s; }
+
+@keyframes heroCheckPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* A small, tasteful nudge on hover/focus so the list feels responsive
+   rather than purely decorative. */
+.hero-points > span {
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin: -2px -6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-points > span:hover {
+  background: rgba(242, 193, 42, 0.1);
+  transform: translateX(3px);
+}
+
+.hero-points > span:hover i {
+  animation: none;
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-side .hero-points {
+    animation: none;
+  }
+
+  .hero-side .hero-points::after {
+    animation: none;
+    width: 100%;
+  }
+
+  .hero-points > span,
+  .hero-points > span i {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .hero-side .d-flex {
