@@ -40,7 +40,6 @@
   var wrap = section.querySelector(".founding-story-banner-wrap");
   var frame = section.querySelector(".founding-story-banner-frame");
   var glow = section.querySelector(".founding-story-banner-glow");
-  var shine = section.querySelector(".founding-story-banner-shine");
 
   if (wrap && frame) {
     var bannerTl = gsap.timeline({
@@ -73,21 +72,6 @@
           },
         },
         "-=0.5"
-      );
-    }
-
-    if (shine) {
-      bannerTl.fromTo(
-        shine,
-        { xPercent: -160 },
-        {
-          xPercent: 220,
-          duration: 1.3,
-          ease: "power2.inOut",
-          repeat: -1,
-          repeatDelay: 6.5,
-        },
-        "-=0.3"
       );
     }
   }

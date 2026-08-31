@@ -69,33 +69,6 @@
     [880, 260, 2.6], [1000, 320, 2.4]
   ];
 
-  // Logo story scene, built to the same 227x242 frame as the real crest
-  // artwork so the hand-drawn version and the photo crossfade line up.
-  // Geometry mirrors the crest's own iconography: two canopies that lean
-  // together with a house roofline peeking between them, trunks that taper
-  // into a single rising arrow, three growth bars sitting on that arrow,
-  // and a person standing beside them.
-  var LOGO_VIEW_W = 227;
-  var LOGO_VIEW_H = 242;
-
-  // A handful of large, heavily-overlapping blobs read as a full rounded
-  // canopy at a glance -- a dozen small dots just turned to noise at the
-  // crest's small on-page size, so this trades fussy detail for a bold,
-  // legible silhouette instead.
-  var LEFT_TREE_LEAVES = [
-    [12, 62, 15], [18, 30, 16], [44, 13, 17], [72, 24, 16], [86, 56, 15], [50, 48, 19]
-  ];
-  var RIGHT_TREE_LEAVES = LEFT_TREE_LEAVES.map(function (leaf) {
-    return [227 - leaf[0], leaf[1], leaf[2]];
-  });
-
-  var CREST_BARS = [
-    { x: 96, w: 13, h: 20 },
-    { x: 113, w: 13, h: 32 },
-    { x: 130, w: 13, h: 45 }
-  ];
-  var CREST_BAR_BASE_Y = 206;
-
   function el(tag, attrs) {
     var node = document.createElementNS(SVG_NS, tag);
     for (var key in attrs) {
@@ -298,80 +271,58 @@
     });
   }
 
-  // Builds the animated "logo story" mark. Rather than just fading the crest
-  // image in and out, it sketches the crest's own iconography piece by
-  // piece -- two canopies leaning together, a house roofline peeking
-  // between them, trunks tapering into a single rising arrow, growth bars
-  // standing on that arrow, and a person beside them -- inside a gold
-  // shield ring, then crossfades into the real logo artwork once the story
-  // is told.
+  // The real, separated crest artwork (cropped from the client-supplied
+  // "RDC Logo -- Separated Elements" sheet) used to build the story piece by
+  // piece instead of the old hand-drawn SVG sketch. Positions are percentages
+  // of the .hero-logo-story container, carried over from where the sketch
+  // version placed each shape, so the choreography still lines up: two
+  // canopies leaning together, a house roofline between them, growth bars
+  // and a rising arrow at the base, and a person standing beside it all, in
+  // front of the shield.
+  var LOGO_PIECES = [
+    // Every box below is calibrated directly against the real rdc-logo.png
+    // artwork (measured piece-by-piece from its own pixels, not carried
+    // over from the old hand-drawn sketch placeholder) so the assembled
+    // story lines up with the finished crest and never "jumps" on crossfade.
+    { key: "shield", file: "shield.png", left: 8.4, top: 8.3, width: 84.1, height: 85.5, origin: "50% 50%" },
+    { key: "leftTree", file: "left-tree.png", left: 14, top: 12, width: 36, height: 37, origin: "50% 100%" },
+    { key: "rightTree", file: "right-tree.png", left: 50, top: 12, width: 36, height: 37, origin: "50% 100%" },
+    { key: "house", file: "house.png", left: 42, top: 25, width: 17, height: 13, origin: "50% 50%" },
+    { key: "bars", file: "bar-chart.png", left: 51, top: 45, width: 17, height: 11, origin: "50% 100%" },
+    { key: "arrow", file: "growth-arrow.png", left: 22, top: 44, width: 46, height: 14, origin: "0% 100%" },
+    { key: "person", file: "human-figure.png", left: 68, top: 38, width: 10, height: 18, origin: "50% 100%" }
+  ];
+
+  // Builds the animated "logo story" mark. Rather than fading the crest
+  // image in and out, it assembles the crest's own real artwork piece by
+  // piece -- the shield first, then two canopies leaning together, a house
+  // roofline peeking between them, growth bars, a rising arrow, and a person
+  // beside it all -- then crossfades into the finished logo lockup once the
+  // story is told.
   function renderLogoStory(container) {
     var src = container.getAttribute("data-logo-src");
     if (!src) return null;
+
+    var basePath = src.slice(0, src.lastIndexOf("/") + 1) + "logo-elements/";
 
     var glow = document.createElement("div");
     glow.className = "hero-logo-glow";
     container.appendChild(glow);
 
-    var svg = el("svg", {
-      class: "hero-logo-fx hero-logo-story-svg",
-      viewBox: "0 0 " + LOGO_VIEW_W + " " + LOGO_VIEW_H,
-      "aria-hidden": "true",
-      focusable: "false"
+    var pieces = {};
+    LOGO_PIECES.forEach(function (spec) {
+      var pieceImg = document.createElement("img");
+      pieceImg.className = "hero-logo-piece hero-logo-piece--" + spec.key;
+      pieceImg.src = basePath + spec.file;
+      pieceImg.alt = "";
+      pieceImg.style.left = spec.left + "%";
+      pieceImg.style.top = spec.top + "%";
+      pieceImg.style.width = spec.width + "%";
+      pieceImg.style.height = spec.height + "%";
+      pieceImg.style.transformOrigin = spec.origin;
+      container.appendChild(pieceImg);
+      pieces[spec.key] = pieceImg;
     });
-
-    var ring = el("path", {
-      class: "hero-logo-ring",
-      d:
-        "M24 34 Q24 16 44 16 L183 16 Q203 16 203 34" +
-        " L203 118 Q203 176 113 226 Q23 176 23 118 Z"
-    });
-
-    var leftTrunk = el("path", { class: "hero-crest-trunk", d: "M56 79 C 51 101, 45 113, 39 129" });
-    var rightTrunk = el("path", { class: "hero-crest-trunk", d: "M171 79 C 176 101, 172 111, 166 122" });
-
-    var leftLeaves = LEFT_TREE_LEAVES.map(function (leaf) {
-      return el("circle", { class: "hero-crest-leaf", cx: leaf[0], cy: leaf[1], r: leaf[2] });
-    });
-    var rightLeaves = RIGHT_TREE_LEAVES.map(function (leaf) {
-      return el("circle", { class: "hero-crest-leaf", cx: leaf[0], cy: leaf[1], r: leaf[2] });
-    });
-
-    var roof = el("path", { class: "hero-crest-house", d: "M89 97 L113 73 L137 97" });
-    var windowGlyph = el("path", {
-      class: "hero-crest-house",
-      d: "M102 99 L102 113 L124 113 L124 99 M113 99 L113 113 M102 106 L124 106"
-    });
-
-    var bars = CREST_BARS.map(function (bar) {
-      return el("rect", {
-        class: "hero-crest-bar",
-        x: bar.x,
-        y: CREST_BAR_BASE_Y - bar.h,
-        width: bar.w,
-        height: bar.h
-      });
-    });
-
-    var arrow = el("path", {
-      class: "hero-crest-arrow",
-      d: "M28 191 Q68 177 98 166 Q131 154 150 131"
-    });
-    var arrowHead = el("path", { class: "hero-crest-arrow", d: "M138 124 L152 129 L146 143" });
-
-    var personHead = el("circle", { class: "hero-crest-person", cx: 191, cy: 167, r: 7.5 });
-    var personBody = el("path", {
-      class: "hero-crest-person",
-      d: "M178 182 Q191 175 204 182 L204 221 Q191 227 178 221 Z"
-    });
-
-    [ring, leftTrunk, rightTrunk]
-      .concat(leftLeaves, rightLeaves, [roof, windowGlyph])
-      .concat(bars, [arrow, arrowHead, personHead, personBody])
-      .forEach(function (node) {
-        svg.appendChild(node);
-      });
-    container.appendChild(svg);
 
     var img = document.createElement("img");
     img.className = "hero-logo-mark";
@@ -381,20 +332,23 @@
 
     return {
       glow: glow,
-      ring: ring,
       img: img,
-      leftTrunk: leftTrunk,
-      rightTrunk: rightTrunk,
-      leftLeaves: leftLeaves,
-      rightLeaves: rightLeaves,
-      roof: roof,
-      windowGlyph: windowGlyph,
-      bars: bars,
-      arrow: [arrow, arrowHead],
-      person: [personHead, personBody],
-      sketchGroup: [ring, leftTrunk, rightTrunk]
-        .concat(leftLeaves, rightLeaves, [roof, windowGlyph])
-        .concat(bars, [arrow, arrowHead, personHead, personBody])
+      shield: pieces.shield,
+      leftTree: pieces.leftTree,
+      rightTree: pieces.rightTree,
+      house: pieces.house,
+      bars: pieces.bars,
+      arrow: pieces.arrow,
+      person: pieces.person,
+      sketchGroup: [
+        pieces.shield,
+        pieces.leftTree,
+        pieces.rightTree,
+        pieces.house,
+        pieces.bars,
+        pieces.arrow,
+        pieces.person
+      ]
     };
   }
 
@@ -411,20 +365,14 @@
 
   function animateLogoWithGsap(logo) {
     var gsap = window.gsap;
-    var drawn = [logo.ring, logo.leftTrunk, logo.rightTrunk, logo.roof, logo.windowGlyph]
-      .concat(logo.arrow);
-    var drawnLens = drawn.map(function (path) {
-      return path.getTotalLength();
-    });
 
-    gsap.set(drawn, {
-      strokeDasharray: function (i) { return drawnLens[i]; },
-      strokeDashoffset: function (i) { return drawnLens[i]; }
-    });
     gsap.set(logo.sketchGroup, { opacity: 0 });
-    gsap.set(logo.leftLeaves.concat(logo.rightLeaves), { scale: 0, transformOrigin: "50% 50%" });
-    gsap.set(logo.bars, { scaleY: 0, transformOrigin: "50% 100%" });
-    gsap.set(logo.person, { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" });
+    gsap.set(logo.shield, { opacity: 0, scale: 0.88, transformOrigin: "50% 50%" });
+    gsap.set([logo.leftTree, logo.rightTree], { opacity: 0, scale: 0.4, y: 10 });
+    gsap.set(logo.house, { opacity: 0, scale: 0.5, y: -6 });
+    gsap.set(logo.bars, { opacity: 0, scaleY: 0 });
+    gsap.set(logo.arrow, { opacity: 0, scaleX: 0 });
+    gsap.set(logo.person, { opacity: 0, scale: 0.6, y: 8 });
     gsap.set(logo.img, { clipPath: "inset(100% 0% 0% 0%)", opacity: 0, scale: 0.94, transformOrigin: "50% 100%" });
     gsap.set(logo.glow, { opacity: 0, scale: 1, transformOrigin: "50% 50%" });
 
@@ -436,56 +384,63 @@
     // the finished brand mark, rather than looping indefinitely.
     var tl = gsap.timeline({ delay: 0.6 });
 
-    // The shield frame draws first -- everything that follows is sketched
-    // inside it.
+    // The shield sits down first -- everything that follows is placed on it.
     tl.to(logo.glow, { opacity: 1, duration: 0.7, ease: "sine.out" }, 0)
-      .set(logo.ring, { opacity: 1 }, 0.1)
-      .to(logo.ring, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }, 0.1);
+      .to(logo.shield, { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 0.1);
 
-    // Two trees grow together, branch by branch: trunks first, then their
-    // canopies bloom leaf by leaf.
-    tl.set([logo.leftTrunk, logo.rightTrunk], { opacity: 1 }, 1.0)
-      .to([logo.leftTrunk, logo.rightTrunk], { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 1.0);
-
-    var leafPairs = logo.leftLeaves.length;
-    for (var i = 0; i < leafPairs; i++) {
-      var leafStart = 1.35 + i * 0.1;
-      tl.to([logo.leftLeaves[i], logo.rightLeaves[i]], { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, leafStart);
-    }
+    // Two trees grow together, canopy first read, settling into place.
+    var treesStart = 0.75;
+    tl.to([logo.leftTree, logo.rightTree], { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.6)", stagger: 0.12 }, treesStart);
 
     // The home they grew for peeks through between the two canopies.
-    var houseStart = 1.35 + leafPairs * 0.1 + 0.25;
-    tl.set([logo.roof, logo.windowGlyph], { opacity: 1 }, houseStart)
-      .to(logo.roof, { strokeDashoffset: 0, duration: 0.4, ease: "power1.out" }, houseStart)
-      .to(logo.windowGlyph, { strokeDashoffset: 0, duration: 0.35, ease: "power1.out" }, houseStart + 0.3);
+    var houseStart = treesStart + 0.65;
+    tl.to(logo.house, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "power2.out" }, houseStart);
 
-    // Financial progress: the bars rise one at a time.
-    var barsStart = houseStart + 0.7;
-    tl.set(logo.bars, { opacity: 0.92 }, barsStart).to(
-      logo.bars,
-      { scaleY: 1, duration: 0.4, ease: "power2.out", stagger: 0.14 },
-      barsStart
-    );
+    // Financial progress: the bars rise from their base.
+    var barsStart = houseStart + 0.45;
+    tl.to(logo.bars, { opacity: 1, scaleY: 1, duration: 0.45, ease: "power2.out" }, barsStart);
 
     // The upward arrow connects the foundation to opportunity.
-    var arrowStart = barsStart + 0.65;
-    tl.set(logo.arrow, { opacity: 1 }, arrowStart)
-      .to(logo.arrow, { strokeDashoffset: 0, duration: 0.8, ease: "power2.out" }, arrowStart);
+    var arrowStart = barsStart + 0.35;
+    tl.to(logo.arrow, { opacity: 1, scaleX: 1, duration: 0.55, ease: "power2.out" }, arrowStart);
 
     // Behind every mortgage is a person with a goal.
-    var personStart = arrowStart + 0.55;
-    tl.to(logo.person, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, personStart);
+    var personStart = arrowStart + 0.4;
+    tl.to(logo.person, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, personStart);
 
-    // Hold the fully hand-drawn crest for a beat, then let the real
-    // artwork take over -- the story settling into the finished brand mark.
+    // Hold the fully assembled crest for a beat, then let the finished
+    // lockup take over -- the story settling into the resting brand mark.
+    // Now that every piece is calibrated to the real artwork's own size,
+    // color and position, the two can genuinely cross-dissolve into each
+    // other instead of one hiding before the other appears -- so the pieces
+    // dissolve out (each on its own gentle drift, back-to-front, last-drawn
+    // first-to-go) while the real mark is already quietly rising underneath,
+    // and a soft light pulse sells the moment the crest "resolves" into its
+    // finished lockup.
     var holdStart = personStart + 0.9;
     var crossfadeStart = holdStart + 1.1;
-    tl.to(logo.sketchGroup, { opacity: 0, duration: 0.6, ease: "sine.in" }, crossfadeStart)
+
+    tl.to(
+      [logo.person, logo.arrow, logo.bars, logo.house, logo.leftTree, logo.rightTree],
+      {
+        opacity: 0,
+        y: "-=4",
+        scale: "*=0.97",
+        duration: 0.55,
+        ease: "sine.in",
+        stagger: 0.045
+      },
+      crossfadeStart
+    )
       .to(
         logo.img,
-        { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, scale: 1, duration: 1, ease: "power3.out" },
-        crossfadeStart
-      );
+        { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, scale: 1, duration: 1.15, ease: "power2.out" },
+        crossfadeStart + 0.08
+      )
+      // A brief, soft brightening right as the finished mark resolves --
+      // reads like a quiet flash of light catching the crest, not a loop.
+      .to(logo.glow, { opacity: 1, scale: 1.22, duration: 0.4, ease: "sine.out" }, crossfadeStart + 0.5)
+      .to(logo.glow, { scale: 1.1, duration: 0.6, ease: "sine.inOut" }, crossfadeStart + 0.9);
 
     // That's it -- the timeline ends here and simply rests on the real
     // logo artwork (still gently breathing via the independent glow tween
