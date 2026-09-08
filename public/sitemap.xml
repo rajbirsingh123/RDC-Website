@@ -55,6 +55,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://royaldencapital.ca/events/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://royaldencapital.ca/events/sales-growth-academy/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://royaldencapital.ca/mortgages/refinance/</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>

@@ -896,7 +896,10 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
     ".knowledge-block, .knowledge-flow div, .formula-panel, .knowledge-diagram, .payment-map, " +
     ".decision-tree, .knowledge-help-list, " +
     ".check-list li, .partner-strip img, .accordion-item, .funding-band, " +
-    ".calc-input-card, .calc-summary-card, .breakdown-card"
+    ".calc-input-card, .calc-summary-card, .breakdown-card, " +
+    ".event-point-row span, .event-photo-card, .event-timeline-item, " +
+    ".event-speaker-card, .event-stat-card, .event-card, " +
+    ".event-featured, .event-more-teaser"
   );
 
   if (!targets.length) return;
@@ -1216,4 +1219,52 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
   });
 
   showStep(currentStep);
+})();
+
+// Event story progress: a thin top progress bar, built and updated
+// purely from scroll position. Scoped to .event-detail-page and driven
+// entirely by [data-chapter-index] markers on each chapter's
+// .event-chapter-label, so a future event detail page gets this for
+// free just by using the same markup -- no per-page wiring needed.
+(function initEventStoryProgress() {
+  const page = document.querySelector(".event-detail-page");
+  if (!page) return;
+
+  const chapters = Array.from(page.querySelectorAll("[data-chapter-index]"));
+  if (!chapters.length) return;
+
+  const bar = document.createElement("div");
+  bar.className = "event-progress-bar";
+  bar.innerHTML = '<span class="event-progress-fill"></span>';
+  bar.setAttribute("aria-hidden", "true");
+  document.body.appendChild(bar);
+  const fill = bar.querySelector(".event-progress-fill");
+
+  const lastSection = chapters[chapters.length - 1].closest("section") || chapters[chapters.length - 1];
+
+  let ticking = false;
+  const update = () => {
+    const startY = chapters[0].getBoundingClientRect().top + window.scrollY;
+    const endY = lastSection.getBoundingClientRect().bottom + window.scrollY;
+    const readerY = window.scrollY + window.innerHeight * 0.35;
+    const progress = Math.min(1, Math.max(0, (readerY - startY) / Math.max(1, endY - startY)));
+    fill.style.width = `${progress * 100}%`;
+
+    bar.classList.toggle("is-visible", window.scrollY > 40 && window.scrollY < endY);
+
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  update();
 })();
