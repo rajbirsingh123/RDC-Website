@@ -889,7 +889,7 @@ document.querySelector("#newsletterForm")?.addEventListener("submit", (event) =>
     ".renovation-panel, .renovation-grid article, .renovation-process article, " +
     ".mortgage-detail-card, .detail-two-up article, .detail-cta-panel, .related-mortgage-links a, " +
     ".compare-table-wrap, .image-stat, .cta-panel, .contact-form-panel, .contact-card, .consult-card, " +
-    ".rate-comparison div, .home-link-panel a, .home-link-list a, .service-link-grid a, " +
+    ".rate-comparison div, .rate-savings-card, .home-link-panel a, .home-link-list a, .service-link-grid a, " +
     ".career-benefit-list section, .career-process-grid article, .career-standard-grid article, " +
     ".career-callout, .career-requirements, .career-form, .career-process-intro, " +
     ".career-event-gallery figure, .career-event-badge, .career-growth-points div, .career-teaser, " +

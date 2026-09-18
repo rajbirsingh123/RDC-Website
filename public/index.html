@@ -260,7 +260,6 @@
           <div class="col-lg-7 hero-copy">
             <h1 data-i18n-html="home_hero_title">Better Rates. Faster Approvals. <span>Real Results.</span></h1>
             <p class="hero-lead" data-i18n="home_hero_lead">Royal Den Capital compares Canada's top lenders so you get the right mortgage, without the runaround for home buyers, renewals, refinancing, and business financing.</p>
-            <p class="hero-license"><i class="bi bi-shield-check"></i> <span data-i18n="home_hero_license">Lic No: M25002134, Mortgage Alliance ON Lic No. 10530</span></p>
           </div>
           <div class="col-lg-5">
             <div class="hero-side">
@@ -308,7 +307,58 @@
             </div>
           </div>
           <div class="col-lg-6 text-center">
-            <img class="rates-image" src="assets/rates-banner.png" alt="RDC lenders mortgage rate savings comparison showing an example $8,000 savings" loading="lazy">
+            <div class="rates-visual">
+              <div class="rate-savings-card" role="img" aria-label="Example comparison: RDC's lenders rate of 3.40% versus a 5.65% current lender rate. On a $100,000 mortgage over a 5-year term, that 2.25% rate gap works out to an example savings of about $8,000.">
+                <div class="rsc-top">
+                  <div class="rsc-lender">
+                    <img src="assets/rdc-logo.png" alt="" aria-hidden="true">
+                    <span>RDC's Lenders</span>
+                  </div>
+                  <div class="rsc-save-bubble">
+                    <span class="rsc-save-label">You Save</span>
+                    <strong class="rsc-save-amount">$<span data-count-to="8000" data-count-decimals="0">0</span></strong>
+                  </div>
+                </div>
+                <div class="rsc-new-rate">
+                  <strong data-count-to="3.40" data-count-decimals="2" data-count-suffix="%">0.00%</strong>
+                </div>
+                <div class="rsc-photo">
+                  <img class="rsc-photo-before" src="assets/mortgages/second-home.jpg" alt="" aria-hidden="true" loading="lazy">
+                  <div class="rsc-photo-after"><img src="assets/mortgages/second-home.jpg" alt="" aria-hidden="true" loading="lazy"></div>
+                  <div class="rsc-divider" aria-hidden="true"></div>
+                </div>
+                <div class="rsc-old-rate">
+                  <span>Your Current Lender</span>
+                  <strong>5.65%<i class="rsc-strike" aria-hidden="true"></i></strong>
+                </div>
+                <div class="rsc-formula" aria-hidden="true">
+                  <div class="rsc-formula-chip">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>$100,000</span>
+                    <small>Mortgage</small>
+                  </div>
+                  <span class="rsc-formula-op"><i class="bi bi-arrow-right"></i></span>
+                  <div class="rsc-formula-chip">
+                    <i class="bi bi-graph-down-arrow"></i>
+                    <span>2.25%</span>
+                    <small>Rate Gap</small>
+                  </div>
+                  <span class="rsc-formula-op"><i class="bi bi-arrow-right"></i></span>
+                  <div class="rsc-formula-chip">
+                    <i class="bi bi-calendar3"></i>
+                    <span>5 Years</span>
+                    <small>Term</small>
+                  </div>
+                  <span class="rsc-formula-op"><i class="bi bi-arrow-right"></i></span>
+                  <div class="rsc-formula-chip rsc-formula-chip--result">
+                    <i class="bi bi-piggy-bank-fill"></i>
+                    <span>~$8,000</span>
+                    <small>Saved</small>
+                  </div>
+                </div>
+                <p class="rsc-caption">Example only, based on a $100,000 mortgage. Your actual savings depend on your mortgage amount, rate, and term.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -371,7 +421,7 @@
       </div>
     </section>
 
-    <section class="about-section" id="about">
+    <section class="about-section" id="about" style="display:none;">
       <div class="container-xl">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
@@ -473,7 +523,7 @@
       </div>
     </section>
 
-    <section class="career-teaser-section">
+    <section class="career-teaser-section" style="display:none;">
       <div class="container-xl">
         <div class="career-teaser">
           <div class="career-teaser-media">
@@ -586,7 +636,7 @@
       </div>
     </section>
 
-    <section class="glossary-section" id="glossary">
+    <section class="glossary-section" id="glossary" style="display:none;">
       <div class="container-xl">
         <div class="section-heading text-center">
           <p class="section-kicker">Mortgage Glossary</p>
@@ -621,7 +671,7 @@
       </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section" style="display:none;">
       <div class="container-xl">
         <div class="cta-panel">
           <h2 data-i18n="home_cta_title">Real People. Real Help. Real Results.</h2>
@@ -703,7 +753,7 @@
       </div>
     </section>
 
-    <section class="disclosures-section">
+    <section class="disclosures-section" style="display:none;">
       <div class="container-xl">
         <div class="section-heading text-center">
           <p class="section-kicker" data-i18n="home_disclosures_kicker">The Fine Print</p>

@@ -1391,6 +1391,410 @@ html[lang="pa"] .navbar-nav .btn-gold {
   animation: premiumImageFloat 7s ease-in-out infinite;
 }
 
+.rates-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.rsc-formula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 400px;
+  margin: 16px auto 0;
+}
+
+.rsc-formula-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 78px;
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: var(--rdc-white);
+  box-shadow: 0 8px 20px rgba(13, 92, 184, 0.1);
+  border: 1px solid var(--rdc-line);
+  opacity: 0;
+}
+
+.rsc-formula-chip i {
+  font-size: 15px;
+  color: var(--rdc-blue);
+}
+
+.rsc-formula-chip span {
+  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 13.5px;
+  color: var(--rdc-ink);
+  line-height: 1.1;
+}
+
+.rsc-formula-chip small {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--rdc-muted);
+}
+
+.rsc-formula-chip--result {
+  background: linear-gradient(135deg, var(--rdc-blue), #1a3f8f);
+  border-color: transparent;
+}
+
+.rsc-formula-chip--result i {
+  color: var(--rdc-white);
+}
+
+.rsc-formula-chip--result span {
+  color: var(--rdc-gold);
+}
+
+.rsc-formula-chip--result small {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rsc-formula-op {
+  font-size: 13px;
+  color: var(--rdc-line);
+  opacity: 0;
+  flex: none;
+}
+
+.rsc-formula-op i {
+  color: inherit;
+}
+
+.rsc-caption {
+  max-width: 360px;
+  margin: 10px auto 0;
+  font-size: 11.5px !important;
+  line-height: 1.5;
+  color: var(--rdc-muted);
+  opacity: 0;
+}
+
+.rate-savings-card {
+  width: 100%;
+  max-width: 360px;
+  text-align: left;
+  animation: premiumImageFloat 7s ease-in-out infinite;
+}
+
+.rsc-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rsc-lender {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rsc-lender img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex: none;
+}
+
+.rsc-lender span {
+  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: var(--rdc-ink);
+  line-height: 1.2;
+}
+
+.rsc-save-bubble {
+  position: relative;
+  flex: none;
+  text-align: center;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--rdc-blue), #1a3f8f);
+  color: var(--rdc-white);
+  box-shadow: 0 12px 24px rgba(13, 92, 184, 0.28);
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.rsc-save-label {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rsc-save-amount {
+  display: block;
+  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  color: var(--rdc-gold);
+}
+
+.rsc-new-rate {
+  margin-top: 14px;
+}
+
+.rsc-new-rate strong {
+  display: block;
+  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 900;
+  color: var(--rdc-blue);
+  line-height: 1;
+}
+
+.rsc-photo {
+  position: relative;
+  margin: 10px 0 14px;
+  aspect-ratio: 4 / 3;
+  -webkit-mask-image: radial-gradient(ellipse 68% 64% at 50% 48%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse 68% 64% at 50% 48%, #000 58%, transparent 100%);
+  filter: drop-shadow(0 14px 22px rgba(13, 92, 184, 0.16));
+}
+
+.rsc-photo-before,
+.rsc-photo-after img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rsc-photo-before {
+  filter: grayscale(1) brightness(0.6);
+}
+
+.rsc-photo-after {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.rsc-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--rdc-gold);
+  box-shadow: 0 0 16px rgba(252, 196, 20, 0.7);
+  opacity: 0;
+}
+
+.rsc-old-rate {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--rdc-line);
+}
+
+.rsc-old-rate span {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--rdc-muted);
+}
+
+.rsc-old-rate strong {
+  position: relative;
+  display: inline-block;
+  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--rdc-muted);
+}
+
+.rsc-strike {
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 50%;
+  height: 2px;
+  background: #c9483f;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rate-savings-card.is-visible .rsc-photo-after {
+    animation: rscWipeIn 1.4s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-divider {
+    animation: rscDividerIn 1.4s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-strike {
+    animation: rscStrikeIn 0.5s 1.5s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-save-bubble {
+    animation: rscBubbleIn 0.6s 1.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-chip:nth-child(1) {
+    animation: rscChipIn 0.45s 1.95s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-op:nth-child(2) {
+    animation: rscOpIn 0.3s 2.25s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-chip:nth-child(3) {
+    animation: rscChipIn 0.45s 2.35s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-op:nth-child(4) {
+    animation: rscOpIn 0.3s 2.65s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-chip:nth-child(5) {
+    animation: rscChipIn 0.45s 2.75s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-op:nth-child(6) {
+    animation: rscOpIn 0.3s 3.05s ease-out forwards;
+  }
+
+  .rate-savings-card.is-visible .rsc-formula-chip--result {
+    animation: rscChipIn 0.45s 3.15s ease-out forwards, rscResultPulse 1.1s 3.6s ease-out;
+  }
+
+  .rate-savings-card.is-visible .rsc-caption {
+    animation: rscCaptionIn 0.5s 3.7s ease-out forwards;
+  }
+}
+
+/* Elements above start hidden/clipped so their entrance animation can reveal
+   them; under reduced-motion the no-preference block above never runs, so
+   show the settled end state directly instead of leaving them stuck hidden. */
+@media (prefers-reduced-motion: reduce) {
+  .rsc-photo-after {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .rsc-divider {
+    left: 100%;
+    opacity: 1;
+  }
+
+  .rsc-strike {
+    transform: scaleX(1);
+  }
+
+  .rsc-save-bubble,
+  .rsc-formula-chip,
+  .rsc-formula-op,
+  .rsc-caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rscWipeIn {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes rscDividerIn {
+  0% {
+    left: 0%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes rscStrikeIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rscBubbleIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rscChipIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rscOpIn {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rscResultPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(252, 196, 20, 0);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(252, 196, 20, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(252, 196, 20, 0);
+  }
+}
+
+@keyframes rscCaptionIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .funding-band {
   padding: 38px 0;
   background: var(--rdc-gold);
