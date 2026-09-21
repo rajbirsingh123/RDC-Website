@@ -2028,6 +2028,11 @@ html[lang="pa"] .navbar-nav .btn-gold {
   color: var(--rdc-white);
 }
 
+.rate-type-links strong {
+  flex: 0 0 200px;
+  min-width: 200px;
+}
+
 .goal-links {
   margin-top: 28px;
 }
@@ -6951,6 +6956,10 @@ output {
   .home-link-panel strong {
     min-width: 0;
     font-size: 22px;
+  }
+
+  .rate-type-links strong {
+    flex: 0 0 auto;
   }
 
   .stat-float {

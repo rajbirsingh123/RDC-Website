@@ -6,7 +6,7 @@ Phone: 905-609-1818
 
 Email: info@royaldencapital.ca
 
-Address: 2483 Burnhamthorpe Rd W, Oakville ON L6M 4H1
+Address: Unit 1, 2483 Burnhamthorpe Rd W, Oakville ON L6M 4H1
 
 Licenses:
 - Mortgage Broker Lic No: M08000511
