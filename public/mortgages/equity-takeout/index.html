@@ -52,6 +52,31 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntityOfPage": "https://royaldencapital.ca/mortgages/equity-takeout/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much equity can I take out of my home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most lenders allow you to borrow up to 80% of your home's appraised value, minus what you still owe. The exact amount depends on the lender, your income, credit, and the property itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can equity takeout funds be used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common uses include renovations, investments, education costs, debt payout, or a down payment on another property. Because it's secured against your home, it's usually a lower-cost way to borrow than unsecured credit."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -177,8 +202,8 @@
         <div class="row g-5 align-items-start">
           <div class="col-lg-5">
             <p class="section-kicker" data-i18n="mp_kicker_approach">Royal Den Approach</p>
-            <h2 data-i18n="mp_approach_title">Clear options, practical advice, and lender matching.</h2>
-            <p data-i18n="mp_approach_desc">Every mortgage strategy starts with context. We look at your goals, equity, income, credit, property details, and timing before recommending a path. Then we compare lender options and explain the trade-offs in plain language.</p>
+            <h2 data-i18n="meq_approach_title">A clear read on how much equity you can put to work.</h2>
+            <p data-i18n="meq_approach_desc">We review your home's current value, outstanding balance, and what you want the funds for, then map out how much equity is realistically available and which lender structure makes the most sense for your goal.</p>
           </div>
           <div class="col-lg-7">
             <div class="mortgage-detail-grid">
@@ -232,6 +257,34 @@
         </div>
       </div>
     </section>
+  
+    <section class="mortgage-detail-faq">
+      <div class="container-xl">
+        <div class="section-heading text-center">
+          <p class="section-kicker" data-i18n="mp_faq_kicker">Common Questions</p>
+          <h2 data-i18n="meq_faq_title">Equity Takeout FAQs</h2>
+        </div>
+        <div class="accordion" id="meqFaqAccordion" style="max-width:920px;margin:0 auto;">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meqFaq1" aria-expanded="false" aria-controls="meqFaq1" data-i18n="meq_faq1_q">How much equity can I take out of my home?</button>
+            </h3>
+            <div id="meqFaq1" class="accordion-collapse collapse" data-bs-parent="#meqFaqAccordion">
+              <div class="accordion-body" data-i18n="meq_faq1_a">Most lenders allow you to borrow up to 80% of your home's appraised value, minus what you still owe. The exact amount depends on the lender, your income, credit, and the property itself.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meqFaq2" aria-expanded="false" aria-controls="meqFaq2" data-i18n="meq_faq2_q">What can equity takeout funds be used for?</button>
+            </h3>
+            <div id="meqFaq2" class="accordion-collapse collapse" data-bs-parent="#meqFaqAccordion">
+              <div class="accordion-body" data-i18n="meq_faq2_a">Common uses include renovations, investments, education costs, debt payout, or a down payment on another property. Because it's secured against your home, it's usually a lower-cost way to borrow than unsecured credit.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <button class="chat-button" id="chatButton" type="button" aria-label="Start live chat by email">

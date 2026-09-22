@@ -2871,7 +2871,7 @@ output {
   display: block;
 }
 
-.apply-step h1 {
+.apply-step h2 {
   color: var(--rdc-navy);
   font-size: clamp(24px, 3vw, 32px);
   line-height: 1.2;
@@ -6604,7 +6604,6 @@ output {
     max-width: 680px;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 0;
   }
 
   .hero-copy::before {
@@ -6816,6 +6815,13 @@ output {
 
   .hero-section h1 {
     font-size: 40px;
+  }
+
+  /* Chips wrap to their own rows below this width, which strands the
+     connector arrow that used to sit between the last chip and the
+     result chip (it stays on the row above, pointing at nothing). */
+  .rsc-formula-op {
+    display: none;
   }
 
   .rate-comparison {

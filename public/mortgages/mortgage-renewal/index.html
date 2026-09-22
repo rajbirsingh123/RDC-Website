@@ -52,6 +52,31 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntityOfPage": "https://royaldencapital.ca/mortgages/mortgage-renewal/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I have to renew with my current lender?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. At renewal you're free to switch lenders, and can often do so without penalty since your term has matured. Comparing offers at renewal, rather than signing the first renewal letter that arrives, is usually where the savings are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should I start looking at renewal options?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most lenders send a renewal offer 30 to 120 days before maturity. Starting the comparison 3 to 4 months ahead gives enough time to review rates, lock one in, and switch lenders if a better option turns up."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -178,8 +203,8 @@
         <div class="row g-5 align-items-start">
           <div class="col-lg-5">
             <p class="section-kicker" data-i18n="mp_kicker_approach">Royal Den Approach</p>
-            <h2 data-i18n="mp_approach_title">Clear options, practical advice, and lender matching.</h2>
-            <p data-i18n="mp_approach_desc">Every mortgage strategy starts with context. We look at your goals, equity, income, credit, property details, and timing before recommending a path. Then we compare lender options and explain the trade-offs in plain language.</p>
+            <h2 data-i18n="mmr_approach_title">A renewal review that starts before your letter arrives.</h2>
+            <p data-i18n="mmr_approach_desc">We look at your current rate, remaining balance, and anything that's changed in your situation since you last signed, then shop your renewal across multiple lenders instead of assuming your existing one has the best offer. You get a clear comparison before you commit to anything.</p>
           </div>
           <div class="col-lg-7">
             <div class="mortgage-detail-grid">
@@ -233,6 +258,34 @@
         </div>
       </div>
     </section>
+  
+    <section class="mortgage-detail-faq">
+      <div class="container-xl">
+        <div class="section-heading text-center">
+          <p class="section-kicker" data-i18n="mp_faq_kicker">Common Questions</p>
+          <h2 data-i18n="mmr_faq_title">Mortgage Renewal FAQs</h2>
+        </div>
+        <div class="accordion" id="mmrFaqAccordion" style="max-width:920px;margin:0 auto;">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mmrFaq1" aria-expanded="false" aria-controls="mmrFaq1" data-i18n="mmr_faq1_q">Do I have to renew with my current lender?</button>
+            </h3>
+            <div id="mmrFaq1" class="accordion-collapse collapse" data-bs-parent="#mmrFaqAccordion">
+              <div class="accordion-body" data-i18n="mmr_faq1_a">No. At renewal you're free to switch lenders, and can often do so without penalty since your term has matured. Comparing offers at renewal, rather than signing the first renewal letter that arrives, is usually where the savings are.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mmrFaq2" aria-expanded="false" aria-controls="mmrFaq2" data-i18n="mmr_faq2_q">How far in advance should I start looking at renewal options?</button>
+            </h3>
+            <div id="mmrFaq2" class="accordion-collapse collapse" data-bs-parent="#mmrFaqAccordion">
+              <div class="accordion-body" data-i18n="mmr_faq2_a">Most lenders send a renewal offer 30 to 120 days before maturity. Starting the comparison 3 to 4 months ahead gives enough time to review rates, lock one in, and switch lenders if a better option turns up.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <button class="chat-button" id="chatButton" type="button" aria-label="Start live chat by email">

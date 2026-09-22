@@ -158,6 +158,14 @@ if (form && payment) {
 
 const numberValue = (selector) => Number(document.querySelector(selector)?.value) || 0;
 const textValue = (selector) => document.querySelector(selector)?.value || "";
+// Translates strings the calculators build at runtime (payment frequency
+// labels, "Years", table headers) -- these aren't in the static markup, so
+// the data-i18n attribute system in i18n.js can't reach them.
+const t = (key, fallback) => {
+  const lang = document.documentElement.lang;
+  const dict = lang !== "en" && window.RDC_I18N && window.RDC_I18N[lang];
+  return (dict && dict[key]) || fallback;
+};
 const setText = (selector, value) => {
   const el = document.querySelector(selector);
   if (el) el.textContent = value;
@@ -181,12 +189,12 @@ const formatPercentValue = (value) => `${(Number.isFinite(value) ? value : 0).to
 
 function paymentFrequencyDetails(frequency, monthlyPayment) {
   const details = {
-    "monthly": { label: "Monthly", periods: 12, payment: monthlyPayment },
-    "semi-monthly": { label: "Semi-Monthly", periods: 24, payment: monthlyPayment / 2 },
-    "biweekly": { label: "Bi-Weekly", periods: 26, payment: monthlyPayment * 12 / 26 },
-    "accelerated-biweekly": { label: "Accelerated Bi-Weekly", periods: 26, payment: monthlyPayment / 2 },
-    "weekly": { label: "Weekly", periods: 52, payment: monthlyPayment * 12 / 52 },
-    "accelerated-weekly": { label: "Accelerated Weekly", periods: 52, payment: monthlyPayment / 4 }
+    "monthly": { label: t("calc_freq_monthly", "Monthly"), periods: 12, payment: monthlyPayment },
+    "semi-monthly": { label: t("calc_freq_semimonthly", "Semi-Monthly"), periods: 24, payment: monthlyPayment / 2 },
+    "biweekly": { label: t("calc_freq_biweekly", "Bi-Weekly"), periods: 26, payment: monthlyPayment * 12 / 26 },
+    "accelerated-biweekly": { label: t("calc_freq_accel_biweekly", "Accelerated Bi-Weekly"), periods: 26, payment: monthlyPayment / 2 },
+    "weekly": { label: t("calc_freq_weekly", "Weekly"), periods: 52, payment: monthlyPayment * 12 / 52 },
+    "accelerated-weekly": { label: t("calc_freq_accel_weekly", "Accelerated Weekly"), periods: 52, payment: monthlyPayment / 4 }
   };
   return details[frequency] || details.monthly;
 }
@@ -329,9 +337,9 @@ function updateAdvancedPaymentCalculator(event) {
   setText("#paymentCalcHomePrice", formatMoney(homePrice));
   setText("#paymentCalcRate", formatPercentValue(annualRate));
   setText("#paymentCalcDown", `${formatMoney(downPayment)} (${percent.format(downPct)})`);
-  setText("#paymentCalcTerm", `${termYears} ${termYears === 1 ? "Year" : "Years"}`);
+  setText("#paymentCalcTerm", `${termYears} ${termYears === 1 ? t("calc_unit_year", "Year") : t("calc_unit_years", "Years")}`);
   setText("#paymentCalcLoanCost", formatMoney(totalPaid));
-  setText("#paymentCalcAmortization", `${amortizationYears} Years`);
+  setText("#paymentCalcAmortization", `${amortizationYears} ${t("calc_unit_years", "Years")}`);
   setText("#paymentCalcLoanAmount", formatMoney(totalLoan));
   setText("#paymentCalcInterest", formatMoney(totalInterest));
   setText("#paymentCalcCount", String(numberOfPayments));
@@ -350,7 +358,7 @@ function updateAdvancedPaymentCalculator(event) {
     `);
     rows.splice(Math.max(termYears, 1), 0, `
       <tr class="term-total">
-        <th scope="row">Term Total</th>
+        <th scope="row">${t("calc_term_total", "Term Total")}</th>
         <td>${formatMoney(amortization.term.payment, 2)}</td>
         <td>${formatMoney(amortization.term.principal, 2)}</td>
         <td>${formatMoney(amortization.term.interest, 2)}</td>
@@ -416,8 +424,8 @@ function updateAffordabilityCalculator() {
   const paymentCount = amortizationYears * 12;
 
   setText("#affordScenarioText", maxHomePrice > 0
-    ? "Based on the information provided, this scenario should fit within common affordability guidelines."
-    : "Based on the information provided, the current inputs do not leave enough room for a mortgage payment.");
+    ? t("calc_afford_fits", "Based on the information provided, this scenario should fit within common affordability guidelines.")
+    : t("calc_afford_short", "Based on the information provided, the current inputs do not leave enough room for a mortgage payment."));
   setText("#affordMaxHomePrice", formatMoney(maxHomePrice));
   pulseValue("#affordMaxHomePrice");
   setText("#affordMaxPayment", formatMoney(maxMonthlyMortgage));
@@ -425,7 +433,7 @@ function updateAffordabilityCalculator() {
   setText("#affordMonthlyMortgage", formatMoney(paymentWithInsurance));
   setText("#affordRate", formatPercentValue(annualRate));
   setText("#affordLoanAmount", formatMoney(baseLoan));
-  setText("#affordAmortizationOut", `${amortizationYears} Years`);
+  setText("#affordAmortizationOut", `${amortizationYears} ${t("calc_unit_years", "Years")}`);
   setText("#affordPaymentCount", String(paymentCount));
   setText("#affordMortgageWithInsurance", formatMoney(loanWithInsurance));
   setText("#affordPaymentWithInsurance", formatMoney(paymentWithInsurance));
@@ -441,6 +449,14 @@ updateAdvancedPaymentCalculator();
 document.querySelector("#affordabilityCalculatorForm")?.addEventListener("input", updateAffordabilityCalculator);
 document.querySelector("#affordabilityCalculatorForm")?.addEventListener("change", updateAffordabilityCalculator);
 updateAffordabilityCalculator();
+
+// Re-render calculator output (frequency labels, "Years", scenario text) in
+// the new language -- switching languages doesn't touch the form inputs, so
+// this only needs to redraw text, not recompute anything.
+window.addEventListener("rdc:langchange", () => {
+  updateAdvancedPaymentCalculator();
+  updateAffordabilityCalculator();
+});
 
 document.querySelector(".lead-form")?.addEventListener("submit", (event) => {
   event.preventDefault();

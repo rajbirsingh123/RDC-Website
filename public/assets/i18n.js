@@ -107,6 +107,10 @@
     if (!LANGS[lang]) lang = DEFAULT_LANG;
     storeLang(lang);
     applyLang(lang);
+    // Lets JS-rendered content (e.g. the mortgage calculators, which build
+    // their own text from user input rather than static markup) know it
+    // should re-render in the new language too.
+    window.dispatchEvent(new CustomEvent("rdc:langchange", { detail: { lang: lang } }));
   }
 
   function wireSwitcher() {

@@ -52,6 +52,31 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntityOfPage": "https://royaldencapital.ca/mortgages/home-equity-line-credit/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a HELOC different from a regular mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A HELOC is a revolving line of credit secured against your home equity. You can draw funds as needed and only pay interest on what you use, unlike a mortgage where you receive the full amount up front on a fixed repayment schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much HELOC can I qualify for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Combined with any existing mortgage balance, most lenders cap total secured borrowing at 65% to 80% of your home's appraised value, depending on the lender and structure."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -177,8 +202,8 @@
         <div class="row g-5 align-items-start">
           <div class="col-lg-5">
             <p class="section-kicker" data-i18n="mp_kicker_approach">Royal Den Approach</p>
-            <h2 data-i18n="mp_approach_title">Clear options, practical advice, and lender matching.</h2>
-            <p data-i18n="mp_approach_desc">Every mortgage strategy starts with context. We look at your goals, equity, income, credit, property details, and timing before recommending a path. Then we compare lender options and explain the trade-offs in plain language.</p>
+            <h2 data-i18n="mhe_approach_title">A HELOC structured for flexibility, not just approval.</h2>
+            <p data-i18n="mhe_approach_desc">We look at your equity, how you plan to draw on it, and how it fits alongside any existing mortgage, then compare lender terms so you get a line of credit that's easy to manage rather than one that just clears underwriting.</p>
           </div>
           <div class="col-lg-7">
             <div class="mortgage-detail-grid">
@@ -232,6 +257,34 @@
         </div>
       </div>
     </section>
+  
+    <section class="mortgage-detail-faq">
+      <div class="container-xl">
+        <div class="section-heading text-center">
+          <p class="section-kicker" data-i18n="mp_faq_kicker">Common Questions</p>
+          <h2 data-i18n="mhe_faq_title">Home Equity Line of Credit FAQs</h2>
+        </div>
+        <div class="accordion" id="mheFaqAccordion" style="max-width:920px;margin:0 auto;">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mheFaq1" aria-expanded="false" aria-controls="mheFaq1" data-i18n="mhe_faq1_q">How is a HELOC different from a regular mortgage?</button>
+            </h3>
+            <div id="mheFaq1" class="accordion-collapse collapse" data-bs-parent="#mheFaqAccordion">
+              <div class="accordion-body" data-i18n="mhe_faq1_a">A HELOC is a revolving line of credit secured against your home equity. You can draw funds as needed and only pay interest on what you use, unlike a mortgage where you receive the full amount up front on a fixed repayment schedule.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mheFaq2" aria-expanded="false" aria-controls="mheFaq2" data-i18n="mhe_faq2_q">How much HELOC can I qualify for?</button>
+            </h3>
+            <div id="mheFaq2" class="accordion-collapse collapse" data-bs-parent="#mheFaqAccordion">
+              <div class="accordion-body" data-i18n="mhe_faq2_a">Combined with any existing mortgage balance, most lenders cap total secured borrowing at 65% to 80% of your home's appraised value, depending on the lender and structure.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <button class="chat-button" id="chatButton" type="button" aria-label="Start live chat by email">

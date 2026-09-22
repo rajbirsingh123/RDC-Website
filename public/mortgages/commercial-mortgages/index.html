@@ -52,6 +52,31 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntityOfPage": "https://royaldencapital.ca/mortgages/commercial-mortgages/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can a commercial mortgage be used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common uses include purchasing an owner-occupied business property, an investment or income-generating building, or refinancing existing commercial real estate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a commercial mortgage different from a residential one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commercial mortgages are typically assessed on the property's income potential and the business's financials, not just personal credit, and often come with shorter terms, larger down payments, and more varied rate structures than residential mortgages."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -209,8 +234,8 @@
         <div class="row g-5 align-items-start">
           <div class="col-lg-5">
             <p class="section-kicker" data-i18n="mp_kicker_approach">Royal Den Approach</p>
-            <h2 data-i18n="mp_approach_title">Clear options, practical advice, and lender matching.</h2>
-            <p data-i18n="mp_approach_desc">Every mortgage strategy starts with context. We look at your goals, equity, income, credit, property details, and timing before recommending a path. Then we compare lender options and explain the trade-offs in plain language.</p>
+            <h2 data-i18n="mcm_approach_title">Commercial financing built around your property's numbers.</h2>
+            <p data-i18n="mcm_approach_desc">We review the property's income potential, your business financials, and your goals, then compare commercial lenders so the structure, term, and rate match how the property performs, not a standard residential template.</p>
           </div>
           <div class="col-lg-7">
             <div class="mortgage-detail-grid">
@@ -264,6 +289,34 @@
         </div>
       </div>
     </section>
+  
+    <section class="mortgage-detail-faq">
+      <div class="container-xl">
+        <div class="section-heading text-center">
+          <p class="section-kicker" data-i18n="mp_faq_kicker">Common Questions</p>
+          <h2 data-i18n="mcm_faq_title">Commercial Mortgages FAQs</h2>
+        </div>
+        <div class="accordion" id="mcmFaqAccordion" style="max-width:920px;margin:0 auto;">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mcmFaq1" aria-expanded="false" aria-controls="mcmFaq1" data-i18n="mcm_faq1_q">What can a commercial mortgage be used for?</button>
+            </h3>
+            <div id="mcmFaq1" class="accordion-collapse collapse" data-bs-parent="#mcmFaqAccordion">
+              <div class="accordion-body" data-i18n="mcm_faq1_a">Common uses include purchasing an owner-occupied business property, an investment or income-generating building, or refinancing existing commercial real estate.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mcmFaq2" aria-expanded="false" aria-controls="mcmFaq2" data-i18n="mcm_faq2_q">How is a commercial mortgage different from a residential one?</button>
+            </h3>
+            <div id="mcmFaq2" class="accordion-collapse collapse" data-bs-parent="#mcmFaqAccordion">
+              <div class="accordion-body" data-i18n="mcm_faq2_a">Commercial mortgages are typically assessed on the property's income potential and the business's financials, not just personal credit, and often come with shorter terms, larger down payments, and more varied rate structures than residential mortgages.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <button class="chat-button" id="chatButton" type="button" aria-label="Start live chat by email">

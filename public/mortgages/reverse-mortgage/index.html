@@ -52,6 +52,31 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntityOfPage": "https://royaldencapital.ca/mortgages/reverse-mortgage/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is eligible for a reverse mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Canada, reverse mortgages are generally available to homeowners aged 55 and older, based on age, home value, and location. No regular mortgage payments are required while you live in the home."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a reverse mortgage mean I no longer own my home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You keep title to your home. The loan, plus accumulated interest, is repaid when you sell, move out, or the last borrower passes away."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -177,8 +202,8 @@
         <div class="row g-5 align-items-start">
           <div class="col-lg-5">
             <p class="section-kicker" data-i18n="mp_kicker_approach">Royal Den Approach</p>
-            <h2 data-i18n="mp_approach_title">Clear options, practical advice, and lender matching.</h2>
-            <p data-i18n="mp_approach_desc">Every mortgage strategy starts with context. We look at your goals, equity, income, credit, property details, and timing before recommending a path. Then we compare lender options and explain the trade-offs in plain language.</p>
+            <h2 data-i18n="mrv_approach_title">A reverse mortgage explained in plain terms, not fine print.</h2>
+            <p data-i18n="mrv_approach_desc">We walk through your age, home value, and goals, then explain exactly how much you may qualify for, how interest accrues, and what it means for your estate, so you can decide with the full picture, not just a headline number.</p>
           </div>
           <div class="col-lg-7">
             <div class="mortgage-detail-grid">
@@ -232,6 +257,34 @@
         </div>
       </div>
     </section>
+  
+    <section class="mortgage-detail-faq">
+      <div class="container-xl">
+        <div class="section-heading text-center">
+          <p class="section-kicker" data-i18n="mp_faq_kicker">Common Questions</p>
+          <h2 data-i18n="mrv_faq_title">Reverse Mortgage FAQs</h2>
+        </div>
+        <div class="accordion" id="mrvFaqAccordion" style="max-width:920px;margin:0 auto;">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mrvFaq1" aria-expanded="false" aria-controls="mrvFaq1" data-i18n="mrv_faq1_q">Who is eligible for a reverse mortgage?</button>
+            </h3>
+            <div id="mrvFaq1" class="accordion-collapse collapse" data-bs-parent="#mrvFaqAccordion">
+              <div class="accordion-body" data-i18n="mrv_faq1_a">In Canada, reverse mortgages are generally available to homeowners aged 55 and older, based on age, home value, and location. No regular mortgage payments are required while you live in the home.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mrvFaq2" aria-expanded="false" aria-controls="mrvFaq2" data-i18n="mrv_faq2_q">Does a reverse mortgage mean I no longer own my home?</button>
+            </h3>
+            <div id="mrvFaq2" class="accordion-collapse collapse" data-bs-parent="#mrvFaqAccordion">
+              <div class="accordion-body" data-i18n="mrv_faq2_a">No. You keep title to your home. The loan, plus accumulated interest, is repaid when you sell, move out, or the last borrower passes away.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <button class="chat-button" id="chatButton" type="button" aria-label="Start live chat by email">
