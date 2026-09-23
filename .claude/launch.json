@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "royal-den-capital",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "public"],
-      "port": 8090
+      "runtimeExecutable": "./node_modules/.bin/next",
+      "runtimeArgs": ["dev"],
+      "port": 3000
     }
   ]
 }

@@ -60,7 +60,7 @@ body {
     var(--rdc-paper-texture),
     linear-gradient(180deg, #ffffff 0%, #f8fbff 42%, #ffffff 100%);
   background-size: 22px 22px, 30px 30px, 18px 18px, auto;
-  font-family: "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-instrument), Arial, sans-serif;
   line-height: 1.65;
 }
 
@@ -94,7 +94,7 @@ h4,
 h5,
 h6 {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -194,7 +194,7 @@ section {
 
 .navbar-brand span {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -346,6 +346,16 @@ html[lang="pa"] .navbar-nav .btn-gold {
     left: auto;
     display: block;
     min-width: 230px;
+    padding: 10px;
+  }
+
+  /* Only 2 items with long labels ("Mortgage Payment Calculator" / "Mortgage Affordability
+     Calculator") — the generic 2-column grid above squeezes each into a too-narrow column.
+     A single readable column fits this dropdown's actual content much better. */
+  .navbar .dropdown:hover > .calculators-menu,
+  .navbar .dropdown:focus-within > .calculators-menu {
+    display: block;
+    min-width: 300px;
     padding: 10px;
   }
 
@@ -512,7 +522,11 @@ html[lang="pa"] .navbar-nav .btn-gold {
   }
 }
 
-.btn-gold {
+/* .btn.btn-gold (not just .btn-gold): Bootstrap's own base .btn rule also sets --bs-btn-bg
+   (to transparent) at equal specificity, and which one wins is a source-order tie that this
+   project's build doesn't reliably resolve in globals.css's favour across the bootstrap.css /
+   globals.css file boundary. The compound selector's higher specificity wins regardless of order. */
+.btn.btn-gold {
   position: relative;
   overflow: hidden;
   --bs-btn-bg: var(--rdc-gold);
@@ -541,7 +555,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 
 .hero-section {
   position: relative;
-  min-height: clamp(500px, 46vw, 720px);
+  min-height: clamp(600px, 60vw, 900px);
   display: flex;
   align-items: center;
   padding: clamp(48px, 6vw, 84px) 0;
@@ -1379,9 +1393,223 @@ html[lang="pa"] .navbar-nav .btn-gold {
 
 .rate-comparison strong {
   color: var(--rdc-blue);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(30px, 4vw, 46px);
   line-height: 1;
+}
+
+.bank-posted-rates {
+  margin-top: clamp(32px, 5vw, 58px);
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(13, 92, 184, 0.13);
+  border-radius: 8px;
+  background:
+    var(--rdc-card-texture),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 255, 0.94));
+  background-blend-mode: normal, normal, multiply, multiply, normal;
+  box-shadow: 0 18px 48px rgba(13, 92, 184, 0.09);
+}
+
+.rates-intro .bank-posted-rates {
+  margin-top: 0;
+}
+
+.bank-posted-rates-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  gap: clamp(22px, 4vw, 40px);
+  align-items: stretch;
+}
+
+.bank-posted-rates-content {
+  min-width: 0;
+}
+
+.bank-posted-rates h3 {
+  margin-bottom: 10px;
+  color: var(--rdc-navy);
+  font-size: clamp(25px, 3vw, 36px);
+}
+
+.bank-posted-rates p {
+  max-width: 820px;
+}
+
+.bank-posted-rates .rate-comparison {
+  margin-top: 20px;
+}
+
+.bank-posted-rates .rate-comparison--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 360px;
+}
+
+.rate-type-toggle {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 14px;
+  padding: 5px;
+  border: 1px solid var(--rdc-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.rate-type-toggle button {
+  min-width: 104px;
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--rdc-muted);
+  font-weight: 900;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rate-type-toggle button.active {
+  background: var(--rdc-blue);
+  color: var(--rdc-white);
+  box-shadow: 0 9px 22px rgba(13, 92, 184, 0.2);
+}
+
+.bank-posted-rates-caption {
+  margin: 18px 0 0;
+  color: var(--rdc-muted);
+  font-size: 14px !important;
+}
+
+.bank-posted-rates-caption a {
+  color: var(--rdc-blue);
+  font-weight: 900;
+}
+
+.bank-posted-rates-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 430px;
+  padding: clamp(18px, 3vw, 28px);
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(13, 92, 184, 0.12), rgba(252, 196, 20, 0.18)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(233, 242, 255, 0.88));
+  box-shadow: 0 22px 44px rgba(7, 26, 63, 0.18);
+}
+
+.bpr-savings-card {
+  position: relative;
+  z-index: 1;
+  max-width: 430px;
+  padding: clamp(20px, 3vw, 26px);
+  border: 1px solid rgba(13, 92, 184, 0.13);
+  border-radius: 8px;
+  background:
+    var(--rdc-card-texture),
+    rgba(255, 255, 255, 0.96);
+  background-blend-mode: normal, normal, multiply, multiply, normal;
+  box-shadow: 0 24px 50px rgba(7, 26, 63, 0.16);
+}
+
+.bpr-savings-card .rsc-old-rate strong {
+  color: var(--rdc-muted);
+  font-size: 21px;
+  line-height: 1.15;
+  text-align: right;
+}
+
+.bpr-savings-card .rsc-save-amount {
+  white-space: nowrap;
+}
+
+.bpr-savings-card .rsc-save-amount span {
+  display: inline;
+}
+
+.bank-posted-rates-visual > img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+.bank-posted-rates-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 26, 63, 0.08), rgba(7, 26, 63, 0.62)),
+    linear-gradient(90deg, rgba(13, 92, 184, 0.2), transparent 58%);
+  pointer-events: none;
+}
+
+.bpr-lender-card,
+.bpr-market-tag {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 42px rgba(7, 26, 63, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+.bpr-lender-card {
+  right: 18px;
+  bottom: 18px;
+  width: min(82%, 285px);
+  padding: 18px;
+}
+
+.bpr-lender-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--rdc-ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.bpr-lender-heading img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.bpr-lender-card strong {
+  display: block;
+  margin-top: 14px;
+  color: var(--rdc-blue);
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1;
+}
+
+.bpr-lender-card small {
+  display: block;
+  margin-top: 6px;
+  color: var(--rdc-muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.bpr-market-tag {
+  left: 18px;
+  top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  color: var(--rdc-navy);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.bpr-market-tag i {
+  color: var(--rdc-blue);
+  font-size: 16px;
 }
 
 .rates-image {
@@ -1427,7 +1655,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 }
 
 .rsc-formula-chip span {
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 800;
   font-size: 13.5px;
   color: var(--rdc-ink);
@@ -1507,7 +1735,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 }
 
 .rsc-lender span {
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 800;
   font-size: 14.5px;
   color: var(--rdc-ink);
@@ -1538,7 +1766,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 
 .rsc-save-amount {
   display: block;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 19px;
   font-weight: 900;
   color: var(--rdc-gold);
@@ -1550,7 +1778,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 
 .rsc-new-rate strong {
   display: block;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(30px, 5vw, 40px);
   font-weight: 900;
   color: var(--rdc-blue);
@@ -1615,7 +1843,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .rsc-old-rate strong {
   position: relative;
   display: inline-block;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 21px;
   font-weight: 800;
   color: var(--rdc-muted);
@@ -1807,11 +2035,10 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .funding-total {
   margin: 0 0 8px;
   color: #000000;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(34px, 4.2vw, 58px);
   font-weight: 800;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.1;
 }
 
 .funding-band h2 {
@@ -1990,7 +2217,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .home-link-panel strong {
   min-width: 92px;
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 24px;
 }
 
@@ -2076,7 +2303,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 .rate-card strong {
   margin-top: 24px;
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 46px;
   line-height: 1;
 }
@@ -2348,7 +2575,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
   max-width: 780px;
   margin: 0 auto 20px;
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(24px, 3.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -2484,7 +2711,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
   margin: 0 auto 36px;
   padding: 0;
   border: 0;
-  font-family: "Outfit", "Instrument Sans", sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), sans-serif;
   font-size: clamp(20px, 2.4vw, 27px);
   font-weight: 700;
   line-height: 1.4;
@@ -2509,7 +2736,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 }
 
 .founding-story-tagline span {
-  font-family: "Outfit", "Instrument Sans", sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), sans-serif;
   font-weight: 800;
   font-size: clamp(20px, 3vw, 28px);
   color: var(--rdc-navy);
@@ -2591,7 +2818,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 
 .stat-float strong {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 46px;
   line-height: 1;
 }
@@ -2718,7 +2945,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
   align-items: center;
   gap: 14px;
   color: var(--rdc-white);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
 }
@@ -2727,7 +2954,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
   display: block;
   margin: 26px 0 10px;
   color: var(--rdc-gold);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 58px;
   line-height: 1;
 }
@@ -2771,7 +2998,7 @@ html[lang="pa"] .navbar-nav .btn-gold {
 output {
   display: block;
   color: var(--rdc-gold);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(28px, 4.4vw, 42px);
   font-weight: 700;
 }
@@ -2806,7 +3033,7 @@ output {
 .calc-results strong,
 .calc-results output {
   color: var(--rdc-gold);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(18px, 2.4vw, 22px);
   font-weight: 700;
 }
@@ -2825,7 +3052,7 @@ output {
 }
 
 .apply-wizard {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
   padding: clamp(28px, 4vw, 44px);
   border: 1px solid var(--rdc-line);
@@ -2888,6 +3115,33 @@ output {
   margin-top: 22px;
 }
 
+.apply-options-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 575.98px) {
+  .apply-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.apply-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 22px;
+  margin-top: 22px;
+}
+
+.apply-field-span-2 {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 575.98px) {
+  .apply-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .apply-option {
   display: flex;
   align-items: center;
@@ -2898,7 +3152,7 @@ output {
   padding: 16px 18px;
   background: var(--rdc-white);
   color: var(--rdc-ink);
-  font-family: "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-instrument), Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-align: left;
@@ -3232,7 +3486,7 @@ output {
   display: block;
   margin-top: 4px;
   color: var(--rdc-ink);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 20px;
   line-height: 1.15;
 }
@@ -3339,7 +3593,7 @@ output {
 .compare-table thead th {
   color: var(--rdc-white);
   background: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 17px;
   white-space: nowrap;
 }
@@ -3389,7 +3643,7 @@ output {
   background: rgba(13, 92, 184, 0.06);
   padding: 8px 16px 8px 18px;
   color: var(--rdc-blue);
-  font-family: "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-instrument), Arial, sans-serif;
   font-weight: 900;
   font-size: 13px;
   cursor: pointer;
@@ -3515,7 +3769,7 @@ output {
 
 .accordion-button {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -3528,7 +3782,7 @@ output {
   color: var(--rdc-white);
   background:
     linear-gradient(90deg, rgba(13, 92, 184, 0.92), rgba(13, 92, 184, 0.76)),
-    url("assets/why-office.jpg") center / cover;
+    url("/assets/why-office.jpg") center / cover;
 }
 
 .cta-panel {
@@ -3691,7 +3945,7 @@ output {
   left: 22px;
   bottom: 22px;
   z-index: 1040;
-  font-family: "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-instrument), Arial, sans-serif;
 }
 
 .chat-attention {
@@ -4030,7 +4284,7 @@ output {
   display: block;
   margin-bottom: 4px;
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 20px;
   line-height: 1.2;
 }
@@ -4169,7 +4423,7 @@ output {
 
 .footer-brand span {
   color: var(--rdc-white);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 22px;
   font-weight: 700;
 }
@@ -4230,7 +4484,7 @@ output {
   padding: 80px 0;
   background:
     linear-gradient(90deg, rgba(13, 92, 184, 0.9), rgba(13, 92, 184, 0.72)),
-    url("assets/about-office.jpg") center / cover;
+    url("/assets/about-office.jpg") center / cover;
 }
 
 .page-hero::before,
@@ -4259,13 +4513,13 @@ output {
 .page-hero-mortgage {
   background:
     linear-gradient(90deg, rgba(13, 92, 184, 0.9), rgba(13, 92, 184, 0.7)),
-    url("assets/mortgage-hero.jpg") center / cover;
+    url("/assets/mortgage-hero.jpg") center / cover;
 }
 
 .contact-hero {
   background:
     linear-gradient(90deg, rgba(7, 26, 63, 0.9), rgba(13, 92, 184, 0.76)),
-    url("assets/about-office.jpg") center / cover;
+    url("/assets/about-office.jpg") center / cover;
 }
 
 .page-hero h1 {
@@ -4305,7 +4559,7 @@ output {
   color: var(--rdc-white);
   background:
     linear-gradient(90deg, rgba(6, 20, 47, 0.92), rgba(13, 92, 184, 0.74)),
-    url("assets/about-office.jpg") center / cover;
+    url("/assets/about-office.jpg") center / cover;
 }
 
 .careers-hero h1 {
@@ -4530,7 +4784,7 @@ output {
 
 .career-event-badge strong {
   color: #251b00;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 22px;
   line-height: 1;
 }
@@ -4719,7 +4973,7 @@ output {
   display: inline-block;
   margin-bottom: 16px;
   color: var(--rdc-gold-dark);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 34px;
   font-weight: 800;
   line-height: 1;
@@ -4802,7 +5056,7 @@ output {
 .career-apply-section {
   background:
     linear-gradient(90deg, rgba(13, 92, 184, 0.94), rgba(6, 20, 47, 0.92)),
-    url("assets/team-group.jpg") center / cover;
+    url("/assets/team-group.jpg") center / cover;
 }
 
 .career-apply-layout {
@@ -4855,7 +5109,7 @@ output {
 .knowledge-hero {
   background:
     linear-gradient(90deg, rgba(6, 20, 47, 0.9), rgba(13, 92, 184, 0.76)),
-    url("assets/about-office.jpg") center / cover;
+    url("/assets/about-office.jpg") center / cover;
 }
 
 .knowledge-section {
@@ -4882,7 +5136,7 @@ output {
 .knowledge-index strong {
   margin-bottom: 8px;
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 20px;
 }
 
@@ -4977,7 +5231,7 @@ output {
 
 .knowledge-steps > li::marker {
   color: var(--rdc-gold-dark);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
 }
@@ -5042,7 +5296,7 @@ output {
 
 .knowledge-flow strong {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 20px;
   line-height: 1.1;
 }
@@ -5087,7 +5341,7 @@ output {
 .comparison-list dt,
 .glossary-list dt {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 800;
 }
 
@@ -5125,7 +5379,7 @@ output {
 
 .knowledge-diagram span {
   color: var(--rdc-gold-dark);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 34px;
   font-weight: 800;
 }
@@ -5165,7 +5419,7 @@ output {
 .knowledge-table th {
   color: var(--rdc-white);
   background: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-weight: 800;
 }
 
@@ -5202,7 +5456,7 @@ output {
   color: var(--rdc-white);
   background: var(--rdc-blue);
   text-align: center;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 26px;
 }
 
@@ -5231,7 +5485,7 @@ output {
   color: var(--rdc-white);
   background: var(--rdc-navy);
   text-align: center;
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
 }
@@ -5255,7 +5509,7 @@ output {
 
 .tree-branches strong {
   color: var(--rdc-navy);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 22px;
 }
 
@@ -5508,7 +5762,7 @@ output {
 .renovation-highlight strong {
   display: block;
   color: var(--rdc-white);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 22px;
   line-height: 1.2;
 }
@@ -5862,7 +6116,7 @@ output {
 
 .why-rdc-list span {
   color: var(--rdc-blue);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 22px;
   font-weight: 900;
 }
@@ -5965,7 +6219,7 @@ output {
   color: var(--rdc-white);
   background:
     linear-gradient(90deg, rgba(13, 92, 184, 0.94), rgba(13, 92, 184, 0.78)),
-    url("assets/why-office.jpg") center / cover;
+    url("/assets/why-office.jpg") center / cover;
 }
 
 .business-support h2,
@@ -6379,7 +6633,7 @@ output {
     linear-gradient(135deg, rgba(13, 92, 184, 0.15), rgba(252, 196, 20, 0.24)),
     var(--rdc-white);
   color: var(--rdc-blue);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: 20px;
   font-weight: 900;
 }
@@ -6651,6 +6905,7 @@ output {
   }
 
   .rate-comparison,
+  .bank-posted-rates-layout,
   .calculator-shell,
   .advanced-calc-layout,
   .career-benefit-list,
@@ -6826,6 +7081,26 @@ output {
 
   .rate-comparison {
     gap: 10px;
+  }
+
+  .bank-posted-rates {
+    padding: 18px;
+  }
+
+  .bank-posted-rates-visual,
+  .bank-posted-rates-visual > img {
+    min-height: 300px;
+  }
+
+  .bpr-lender-card {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100% - 24px);
+  }
+
+  .bpr-market-tag {
+    left: 12px;
+    top: 12px;
   }
 
   .partner-strip {
@@ -7279,6 +7554,24 @@ main > section:not(.hero-section):not(.page-hero):not(.careers-hero):not(.mortga
   }
 }
 
+/* Page transition: fades + rises each route's content in on navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .page-transition {
+    animation: pageFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Respect reduced-motion preference site-wide */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -7723,7 +8016,7 @@ main > section:not(.hero-section):not(.page-hero):not(.careers-hero):not(.mortga
 .event-stat-card strong {
   display: block;
   color: var(--rdc-blue);
-  font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+  font-family: var(--font-outfit), var(--font-instrument), Arial, sans-serif;
   font-size: clamp(34px, 4vw, 44px);
   line-height: 1;
 }
@@ -8094,4 +8387,3 @@ main > section:not(.hero-section):not(.page-hero):not(.careers-hero):not(.mortga
   background: linear-gradient(90deg, var(--rdc-gold), var(--rdc-blue));
   transition: width 0.15s linear;
 }
-
