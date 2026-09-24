@@ -31,7 +31,11 @@ export function financialServiceJsonLd() {
       postalCode: "L6M 4H1",
       addressCountry: "CA",
     },
-    sameAs: ["https://instagram.com/royaldencapital"],
+    sameAs: [
+      "https://instagram.com/royaldencapital",
+      "https://www.linkedin.com/in/royal-den-capital-57753943a/",
+      "https://www.mortgagealliance.com/en/",
+    ],
   };
 }
 

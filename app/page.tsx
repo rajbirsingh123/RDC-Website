@@ -44,7 +44,6 @@ const HOME_ORGANIZATION_JSON_LD = {
     opens: "10:00",
     closes: "18:00",
   },
-  sameAs: ["https://instagram.com/royaldencapital", "https://www.mortgagealliance.com/en/"],
   priceRange: "$$",
   hasOfferCatalog: {
     "@type": "OfferCatalog",

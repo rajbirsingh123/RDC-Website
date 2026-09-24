@@ -28,12 +28,39 @@ const EMPTY_QUALIFICATION: Qualification = { name: "", email: "", phone: "", nee
 const GREETING =
   "Hi, I am the Royal Den Capital assistant. I can answer basic mortgage questions, qualify your request, and transfer the full chat to an expert.";
 
+/** Rough footprint (mascot peek + launcher button) the fixed widget occupies above its bottom offset, on mobile. */
+const HERO_SAFE_ZONE_PX = 190;
+const HERO_SAFE_ZONE_MAX_WIDTH = 575;
+
 export function LiveChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hideForHero, setHideForHero] = useState(false);
   const [state, setState] = useState<ChatState>({ messages: [], qualification: EMPTY_QUALIFICATION, collecting: null });
   const [inputValue, setInputValue] = useState("");
   const messagesRef = useRef<HTMLDivElement>(null);
   const hydrated = useRef(false);
+
+  useEffect(() => {
+    const hero = document.querySelector<HTMLElement>(".hero-section");
+    if (!hero) return;
+
+    const evaluate = () => {
+      if (window.innerWidth > HERO_SAFE_ZONE_MAX_WIDTH) {
+        setHideForHero(false);
+        return;
+      }
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setHideForHero(heroBottom > window.innerHeight - HERO_SAFE_ZONE_PX);
+    };
+
+    evaluate();
+    window.addEventListener("scroll", evaluate, { passive: true });
+    window.addEventListener("resize", evaluate);
+    return () => {
+      window.removeEventListener("scroll", evaluate);
+      window.removeEventListener("resize", evaluate);
+    };
+  }, []);
 
   useEffect(() => {
     const saved = readSessionStorage<ChatState>(STORAGE_KEY);
@@ -165,8 +192,12 @@ export function LiveChatWidget() {
     }, 220);
   };
 
+  const rootClassName = ["live-chat", isOpen && "is-open", hideForHero && !isOpen && "is-hidden-for-hero"]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <section className={isOpen ? "live-chat is-open" : "live-chat"} aria-label="Royal Den Capital live chat assistant">
+    <section className={rootClassName} aria-label="Royal Den Capital live chat assistant">
       <div className="chat-attention" aria-hidden="true">
         <img src="/assets/rdc-lion-wave-chat.gif" alt="" />
         <div className="chat-typing-bubble">

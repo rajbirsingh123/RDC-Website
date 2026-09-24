@@ -77,7 +77,12 @@ export function Footer() {
                 <a href="#" aria-label="Facebook">
                   <i className="bi bi-facebook" />
                 </a>
-                <a href="#" aria-label="LinkedIn">
+                <a
+                  href="https://www.linkedin.com/in/royal-den-capital-57753943a/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <i className="bi bi-linkedin" />
                 </a>
               </div>

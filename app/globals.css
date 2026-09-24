@@ -3946,6 +3946,16 @@ output {
   bottom: 22px;
   z-index: 1040;
   font-family: var(--font-instrument), Arial, sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+/* On short mobile viewports the launcher's fixed bottom-left position can land
+   on top of hero content that hasn't scrolled past it yet (e.g. the homepage's
+   "Why RDC?" card). LiveChatWidget toggles this while that content is still in
+   the danger zone, so the widget reappears as soon as it's clear. */
+.live-chat.is-hidden-for-hero {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .chat-attention {
@@ -7087,6 +7097,30 @@ output {
 
   .hero-section h1 {
     font-size: 40px;
+  }
+
+  /* Tightened so the "Why RDC?" card clears the fixed live-chat launcher
+     (bottom-left, ~150px tall including the mascot peek) on short phone
+     viewports instead of the card's checklist sitting underneath it. */
+  .hero-section--video {
+    padding-top: 28px;
+  }
+
+  .hero-section--video .row {
+    --bs-gutter-y: 1.25rem;
+  }
+
+  .hero-section--video .hero-lead {
+    margin-top: 10px;
+  }
+
+  .hero-side-heading {
+    padding-top: 10px;
+  }
+
+  .hero-side .hero-points {
+    margin-top: 14px;
+    gap: 8px 22px;
   }
 
   /* Chips wrap to their own rows below this width, which strands the

@@ -98,16 +98,16 @@ export function CareerForm() {
             <option value="">
               <T k="cr_opt_select_status">Select status</T>
             </option>
-            <option>
+            <option value="Licensed Mortgage Agent">
               <T k="cr_opt_licensed_agent">Licensed Mortgage Agent</T>
             </option>
-            <option>
+            <option value="Licensed Mortgage Broker">
               <T k="cr_opt_licensed_broker">Licensed Mortgage Broker</T>
             </option>
-            <option>
+            <option value="Currently completing licensing">
               <T k="cr_opt_completing">Currently completing licensing</T>
             </option>
-            <option>
+            <option value="Interested but not licensed yet">
               <T k="cr_opt_interested">Interested but not licensed yet</T>
             </option>
           </select>
@@ -127,16 +127,16 @@ export function CareerForm() {
             <option value="">
               <T k="cr_opt_select_exp">Select experience</T>
             </option>
-            <option>
+            <option value="New to mortgage industry">
               <T k="cr_opt_new">New to mortgage industry</T>
             </option>
-            <option>
+            <option value="Less than 1 year">
               <T k="cr_opt_less1">Less than 1 year</T>
             </option>
-            <option>
+            <option value="1-3 years">
               <T k="cr_opt_1to3">1-3 years</T>
             </option>
-            <option>
+            <option value="3+ years">
               <T k="cr_opt_3plus">3+ years</T>
             </option>
           </select>
