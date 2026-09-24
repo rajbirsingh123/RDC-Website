@@ -113,7 +113,7 @@ export default function HomePage() {
               <div className="marquee-track">
                 <img src="/assets/partner-3.png" alt="Scotiabank" />
                 <img src="/assets/partner-4.png" alt="TD Bank" />
-                <img src="/assets/rbc.svg" alt="RBC Royal Bank" />
+                <img src="/assets/rbc.png" alt="RBC Royal Bank" />
                 <img src="/assets/bmo.svg" alt="BMO" />
                 <img src="/assets/cibc.svg" alt="CIBC" />
                 <img src="/assets/national-bank.svg" alt="National Bank of Canada" />
@@ -123,7 +123,7 @@ export default function HomePage() {
                 <img src="/assets/partner-6.png" alt="Atrium" />
                 <img src="/assets/partner-3.png" alt="" aria-hidden="true" />
                 <img src="/assets/partner-4.png" alt="" aria-hidden="true" />
-                <img src="/assets/rbc.svg" alt="" aria-hidden="true" />
+                <img src="/assets/rbc.png" alt="" aria-hidden="true" />
                 <img src="/assets/bmo.svg" alt="" aria-hidden="true" />
                 <img src="/assets/cibc.svg" alt="" aria-hidden="true" />
                 <img src="/assets/national-bank.svg" alt="" aria-hidden="true" />

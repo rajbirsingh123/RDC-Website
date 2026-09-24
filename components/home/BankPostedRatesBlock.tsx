@@ -128,9 +128,9 @@ export function BankPostedRatesBlock() {
               <CountUp to={exampleNegotiatedRate} decimals={2} suffix="%" />
             </div>
             <div className="rsc-photo">
-              <img className="rsc-photo-before" src="/assets/mortgages/second-home.jpg" alt="" aria-hidden="true" loading="lazy" />
+              <img className="rsc-photo-before" src="/assets/rate-savings-home.jpg" alt="" aria-hidden="true" loading="lazy" />
               <div className="rsc-photo-after">
-                <img src="/assets/mortgages/second-home.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img src="/assets/rate-savings-home.jpg" alt="" aria-hidden="true" loading="lazy" />
               </div>
               <div className="rsc-divider" aria-hidden="true" />
             </div>
