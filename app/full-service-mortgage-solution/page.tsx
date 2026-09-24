@@ -21,7 +21,6 @@ const INDEX_LINKS = [
   { href: "#mortgage-options", key: "fsms_idx_options", fallback: "Mortgage options" },
   { href: "#fixed-variable", key: "fsms_idx_fixed_variable", fallback: "Fixed vs. variable" },
   { href: "#open-closed", key: "fsms_idx_open_closed", fallback: "Open vs. closed" },
-  { href: "#agent-process", key: "fsms_idx_agent_process", fallback: "Agent process" },
   { href: "#documents", key: "fsms_idx_documents", fallback: "Documents" },
   { href: "#tools", key: "fsms_idx_tools", fallback: "Tools and links" },
 ];
@@ -41,15 +40,6 @@ const MORTGAGE_OPTIONS = [
   { id: "commercial", href: "/mortgages/commercial-mortgages/", titleKey: "footer_commercial_mortgages", title: "Commercial Mortgages", descKey: "fsms_commercial_desc", desc: "For owner-occupied or income-producing commercial property. Review business financials, lease income, property type, environmental needs, and down payment strength." },
   { id: "purchase-plus-improvements", href: "/mortgages/purchase-improvement/", titleKey: "common_mortgage_purchase_improvements", title: "Purchase Plus Improvements", descKey: "fsms_purchase_improve_desc", desc: "For buyers purchasing a home that needs upgrades right away. Confirm accepted purchase price, improvement quote, down payment, lender rules, and completion timing." },
   { id: "co-equity", href: "/mortgages/co-equity-homeownership-ourboro/", titleKey: "common_mortgage_co_equity", title: "Co-Equity Homeownership", descKey: "fsms_co_equity_desc", desc: "For buyers exploring shared-equity support to improve affordability. Review eligibility, contribution expectations, future sale rules, and long-term ownership goals." },
-];
-
-const AGENT_STEPS = [
-  { strongKey: "fsms_step1_strong", strong: "Identify the scenario.", restKey: "fsms_step1_rest", rest: " Purchase, refinance, renewal, equity, construction, commercial, or special program." },
-  { strongKey: "fsms_step2_strong", strong: "Confirm the numbers.", restKey: "fsms_step2_rest", rest: " Income, debts, credit, down payment, property value, mortgage balance, and payment comfort." },
-  { strongKey: "fsms_step3_strong", strong: "Collect documents early.", restKey: "fsms_step3_rest", rest: " Missing documents slow down underwriting more than rate shopping does." },
-  { strongKey: "fsms_step4_strong", strong: "Match the lender type.", restKey: "fsms_step4_rest", rest: " Bank, credit union, monoline, alternative lender, or private option depending on strength of file." },
-  { strongKey: "fsms_step5_strong", strong: "Explain the trade-offs.", restKey: "fsms_step5_rest", rest: " Rate, penalty, fees, term, prepayment privileges, speed, and approval conditions." },
-  { strongKey: "fsms_step6_strong", strong: "Keep the client updated.", restKey: "fsms_step6_rest", rest: " Tell them what is submitted, what is pending, and what must happen before closing." },
 ];
 
 const DOCS = [
@@ -243,27 +233,6 @@ export default function FullServiceMortgageSolutionPage() {
                       </dd>
                     </div>
                   </dl>
-                </section>
-
-                <section id="agent-process" className="info-block">
-                  <p className="section-kicker">
-                    <T k="fsms_agent_kicker">Agent Workflow</T>
-                  </p>
-                  <h2>
-                    <T k="fsms_agent_title">Simple file flow.</T>
-                  </h2>
-                  <ol className="info-steps">
-                    {AGENT_STEPS.map((step) => (
-                      <li key={step.strongKey}>
-                        <strong>
-                          <T k={step.strongKey}>{step.strong}</T>
-                        </strong>
-                        <span>
-                          <T k={step.restKey}>{step.rest}</T>
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
                 </section>
 
                 <section id="documents" className="info-block">

@@ -164,7 +164,7 @@ export const MORTGAGES: MortgagePageData[] = [
           "Let Royal Den Capital review your current mortgage, equity, debts, and goals so you can see whether refinancing is the right next move.",
       },
     },
-    relatedSlugs: ["renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages", "purchase-improvement"],
+    relatedSlugs: ["equity-takeout", "home-equity-line-credit", "debt-consolidation", "mortgage-renewal", "renovation-finance", "purchase-improvement"],
     faqTitle: { key: "mrf_faq_title", fallback: "Refinance Your Mortgage FAQs" },
     faqAccordionId: "mrfFaqAccordion",
     faq: [
@@ -254,7 +254,7 @@ export const MORTGAGES: MortgagePageData[] = [
         fallback: "Let us help you decide whether an equity takeout fits your plans and cash flow.",
       },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["refinance", "home-equity-line-credit", "debt-consolidation", "renovation-finance", "second-home", "purchase-improvement"],
     faqTitle: { key: "meq_faq_title", fallback: "Equity Takeout FAQs" },
     faqAccordionId: "meqFaqAccordion",
     faq: [
@@ -345,7 +345,7 @@ export const MORTGAGES: MortgagePageData[] = [
         fallback: "Tell us what you want to build, repair, or upgrade, and we will help you explore the cleanest way to finance it.",
       },
     },
-    relatedSlugs: ["refinance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages", "purchase-improvement"],
+    relatedSlugs: ["purchase-improvement", "construction-financing", "equity-takeout", "home-equity-line-credit", "second-home", "commercial-mortgages"],
     faqTitle: { key: "mrn_faq_title", fallback: "Renovation Finance FAQs" },
     faqAccordionId: "mrnFaqAccordion",
     faq: [
@@ -429,7 +429,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mhe_cta_h2", fallback: "Could a HELOC fit your plans?" },
       p: { key: "mhe_cta_p", fallback: "Royal Den Capital can help compare HELOC options and lender requirements." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["equity-takeout", "refinance", "debt-consolidation", "renovation-finance", "mortgage-renewal", "second-home"],
     faqTitle: { key: "mhe_faq_title", fallback: "Home Equity Line of Credit FAQs" },
     faqAccordionId: "mheFaqAccordion",
     faq: [
@@ -517,7 +517,7 @@ export const MORTGAGES: MortgagePageData[] = [
         fallback: "Let us help you organize your documents, understand your numbers, and move forward with confidence.",
       },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "mortgage-renewal", "second-home", "commercial-mortgages", "purchase-improvement"],
+    relatedSlugs: ["new-to-canada-mortgage", "co-equity-homeownership-ourboro", "second-home", "purchase-improvement", "refinance", "mortgage-renewal"],
     faqTitle: { key: "mfh_faq_title", fallback: "First Time Home Buyers FAQs" },
     faqAccordionId: "mfhFaqAccordion",
     faq: [
@@ -601,7 +601,7 @@ export const MORTGAGES: MortgagePageData[] = [
         fallback: "We can review your balances, equity, and payments to see what a responsible consolidation plan could look like.",
       },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["refinance", "equity-takeout", "home-equity-line-credit", "mortgage-renewal", "reverse-mortgage", "renovation-finance"],
     faqTitle: { key: "mdc_faq_title", fallback: "Debt Consolidation Mortgage FAQs" },
     faqAccordionId: "mdcFaqAccordion",
     faq: [
@@ -683,7 +683,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mmr_cta_h2", fallback: "Renewing in the next few months?" },
       p: { key: "mmr_cta_p", fallback: "Send us your renewal offer and we will help you understand whether there is a better path." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "second-home", "commercial-mortgages", "purchase-improvement"],
+    relatedSlugs: ["refinance", "debt-consolidation", "reverse-mortgage", "home-equity-line-credit", "co-equity-homeownership-ourboro", "new-to-canada-mortgage"],
     faqTitle: { key: "mmr_faq_title", fallback: "Mortgage Renewal FAQs" },
     faqAccordionId: "mmrFaqAccordion",
     faq: [
@@ -766,7 +766,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mrv_cta_h2", fallback: "Interested in learning more about reverse mortgages?" },
       p: { key: "mrv_cta_p", fallback: "We can help you understand whether this option fits your retirement and estate goals." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["equity-takeout", "home-equity-line-credit", "refinance", "debt-consolidation", "mortgage-renewal", "second-home"],
     faqTitle: { key: "mrv_faq_title", fallback: "Reverse Mortgage FAQs" },
     faqAccordionId: "mrvFaqAccordion",
     faq: [
@@ -847,7 +847,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "msh_cta_h2", fallback: "Thinking about a second property?" },
       p: { key: "msh_cta_p", fallback: "Royal Den Capital can help compare the financing options before you make the next move." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "commercial-mortgages", "purchase-improvement"],
+    relatedSlugs: ["first-home-buyers", "purchase-improvement", "commercial-mortgages", "reverse-mortgage", "renovation-finance", "construction-financing"],
     faqTitle: { key: "msh_faq_title", fallback: "Second Home Financing FAQs" },
     faqAccordionId: "mshFaqAccordion",
     faq: [
@@ -926,7 +926,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mnc_cta_h2", fallback: "New to Canada and ready to buy?" },
       p: { key: "mnc_cta_p", fallback: "Let us help you understand what lenders need and how to prepare for approval." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["first-home-buyers", "co-equity-homeownership-ourboro", "mortgage-renewal", "purchase-improvement", "second-home", "refinance"],
     faqTitle: { key: "mnc_faq_title", fallback: "New to Canada Mortgage FAQs" },
     faqAccordionId: "mncFaqAccordion",
     faq: [
@@ -1055,7 +1055,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mcm_cta_h2", fallback: "Need commercial lending advice?" },
       p: { key: "mcm_cta_p", fallback: "Talk to Royal Den Capital about your property, business model, and financing goals." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "purchase-improvement"],
+    relatedSlugs: ["construction-financing", "purchase-improvement", "second-home", "co-equity-homeownership-ourboro", "renovation-finance", "equity-takeout"],
     faqTitle: { key: "mcm_faq_title", fallback: "Commercial Mortgages FAQs" },
     faqAccordionId: "mcmFaqAccordion",
     faq: [
@@ -1138,7 +1138,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mcf_cta_h2", fallback: "Planning a build or major rebuild?" },
       p: { key: "mcf_cta_p", fallback: "Talk to us before construction starts so the financing plan matches the project plan." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["renovation-finance", "purchase-improvement", "commercial-mortgages", "second-home", "reverse-mortgage", "equity-takeout"],
     faqTitle: { key: "mcf_faq_title", fallback: "Construction Financing FAQs" },
     faqAccordionId: "mcfFaqAccordion",
     faq: [
@@ -1219,7 +1219,7 @@ export const MORTGAGES: MortgagePageData[] = [
         fallback: "Share the property and renovation scope with us, and we will help you understand what financing may be available.",
       },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["renovation-finance", "first-home-buyers", "construction-financing", "second-home", "commercial-mortgages", "new-to-canada-mortgage"],
     faqTitle: { key: "mpi_faq_title", fallback: "Purchase Plus Improvements FAQs" },
     faqAccordionId: "mpiFaqAccordion",
     faq: [
@@ -1301,7 +1301,7 @@ export const MORTGAGES: MortgagePageData[] = [
       h2: { key: "mce_cta_h2", fallback: "Curious about co-equity homeownership?" },
       p: { key: "mce_cta_p", fallback: "We can help you understand how shared-equity financing may fit into your home-buying plan." },
     },
-    relatedSlugs: ["refinance", "renovation-finance", "first-home-buyers", "mortgage-renewal", "second-home", "commercial-mortgages"],
+    relatedSlugs: ["first-home-buyers", "new-to-canada-mortgage", "purchase-improvement", "second-home", "mortgage-renewal", "refinance"],
     faqTitle: { key: "mce_faq_title", fallback: "Co-Equity Homeownership FAQs" },
     faqAccordionId: "mceFaqAccordion",
     faq: [

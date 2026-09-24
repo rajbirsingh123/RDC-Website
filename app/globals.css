@@ -5345,6 +5345,19 @@ output {
   font-weight: 800;
 }
 
+.glossary-list dt a,
+.knowledge-list strong a {
+  text-decoration: underline;
+  text-decoration-color: var(--rdc-line);
+  text-underline-offset: 3px;
+}
+
+.glossary-list dt a:hover,
+.knowledge-list strong a:hover {
+  color: var(--rdc-gold-dark);
+  text-decoration-color: currentColor;
+}
+
 .formula-panel dd,
 .comparison-list dd,
 .glossary-list dd {

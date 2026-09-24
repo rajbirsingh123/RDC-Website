@@ -25,8 +25,11 @@ export function financialServiceJsonLd() {
     email: ORG_CONTACT.email,
     address: {
       "@type": "PostalAddress",
-      addressCountry: "CA",
+      streetAddress: "Unit 1, 2483 Burnhamthorpe Rd W",
+      addressLocality: "Oakville",
       addressRegion: "ON",
+      postalCode: "L6M 4H1",
+      addressCountry: "CA",
     },
     sameAs: ["https://instagram.com/royaldencapital"],
   };

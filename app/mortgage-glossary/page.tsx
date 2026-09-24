@@ -4,8 +4,13 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
 import { GLOSSARY_TERMS } from "@/data/glossaryTerms";
+
+const GLOSSARY_FAQ = GLOSSARY_TERMS.map((term) => ({
+  question: `What is ${term.dt}?`,
+  answer: term.dd,
+}));
 
 const DESCRIPTION =
   "A plain-language guide to Canadian mortgages, from pre-approval to renewal, with the key terms, rules, costs, and decisions explained in one place.";
@@ -83,12 +88,12 @@ const DP_SOURCES = [
 ];
 
 const SPECIAL_SCENARIOS = [
-  { strongKey: "gl_sp1_strong", strong: "HELOC:", restKey: "gl_sp1_rest", rest: " A revolving home equity line of credit secured by real estate. Useful for flexible borrowing, but it can create long-term debt if not managed carefully." },
-  { strongKey: "gl_sp2_strong", strong: "Second mortgage:", restKey: "gl_sp2_rest", rest: " A mortgage registered behind the first mortgage. Often higher rate because the lender takes more risk." },
+  { strongKey: "gl_sp1_strong", strong: "HELOC:", restKey: "gl_sp1_rest", rest: " A revolving home equity line of credit secured by real estate. Useful for flexible borrowing, but it can create long-term debt if not managed carefully.", href: "/mortgages/home-equity-line-credit/" },
+  { strongKey: "gl_sp2_strong", strong: "Second mortgage:", restKey: "gl_sp2_rest", rest: " A mortgage registered behind the first mortgage. Often higher rate because the lender takes more risk.", href: "/mortgages/equity-takeout/" },
   { strongKey: "gl_sp3_strong", strong: "Bridge financing:", restKey: "gl_sp3_rest", rest: " Short-term financing that helps when a new purchase closes before the sale of the existing home closes." },
-  { strongKey: "gl_sp4_strong", strong: "Construction financing:", restKey: "gl_sp4_rest", rest: " Funds are usually released in stages as construction progresses and inspections or appraisals confirm progress." },
-  { strongKey: "gl_sp5_strong", strong: "Commercial mortgage:", restKey: "gl_sp5_rest", rest: " Financing for commercial or mixed-use properties, often underwritten with more focus on property income, business strength, and risk." },
-  { strongKey: "gl_sp6_strong", strong: "Reverse mortgage:", restKey: "gl_sp6_rest", rest: " A loan secured against home equity, typically for older homeowners, where repayment is usually deferred until sale, move, or death. Suitability and cost should be reviewed carefully." },
+  { strongKey: "gl_sp4_strong", strong: "Construction financing:", restKey: "gl_sp4_rest", rest: " Funds are usually released in stages as construction progresses and inspections or appraisals confirm progress.", href: "/mortgages/construction-financing/" },
+  { strongKey: "gl_sp5_strong", strong: "Commercial mortgage:", restKey: "gl_sp5_rest", rest: " Financing for commercial or mixed-use properties, often underwritten with more focus on property income, business strength, and risk.", href: "/mortgages/commercial-mortgages/" },
+  { strongKey: "gl_sp6_strong", strong: "Reverse mortgage:", restKey: "gl_sp6_rest", rest: " A loan secured against home equity, typically for older homeowners, where repayment is usually deferred until sale, move, or death. Suitability and cost should be reviewed carefully.", href: "/mortgages/reverse-mortgage/" },
 ];
 
 const TERM_AMORT = [
@@ -158,11 +163,29 @@ const CTA_HELP_ITEMS = [
   { key: "gl_cta_li4", text: "Self-employed, newcomer, private, alternative, and complex files." },
 ];
 
-function ListItem({ strongKey, strong, restKey, rest }: { strongKey: string; strong: string; restKey: string; rest: string }) {
+function ListItem({
+  strongKey,
+  strong,
+  restKey,
+  rest,
+  href,
+}: {
+  strongKey: string;
+  strong: string;
+  restKey: string;
+  rest: string;
+  href?: string;
+}) {
   return (
     <li>
       <strong>
-        <T k={strongKey}>{strong}</T>
+        {href ? (
+          <Link href={href}>
+            <T k={strongKey}>{strong}</T>
+          </Link>
+        ) : (
+          <T k={strongKey}>{strong}</T>
+        )}
       </strong>
       <span>
         <T k={restKey}>{rest}</T>
@@ -174,7 +197,12 @@ function ListItem({ strongKey, strong, restKey, rest }: { strongKey: string; str
 export default function MortgageGlossaryPage() {
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Mortgage Glossary", path: "/mortgage-glossary/" }])} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Mortgage Glossary", path: "/mortgage-glossary/" }]),
+          faqPageJsonLd(GLOSSARY_FAQ),
+        ]}
+      />
       <RevealMain>
         <section className="page-hero knowledge-hero">
           <div className="container-xl text-center">
@@ -551,7 +579,14 @@ export default function MortgageGlossaryPage() {
                   </h3>
                   <ul className="knowledge-list">
                     {SPECIAL_SCENARIOS.map((item) => (
-                      <ListItem key={item.strongKey} strongKey={item.strongKey} strong={item.strong} restKey={item.restKey} rest={item.rest} />
+                      <ListItem
+                        key={item.strongKey}
+                        strongKey={item.strongKey}
+                        strong={item.strong}
+                        restKey={item.restKey}
+                        rest={item.rest}
+                        href={item.href}
+                      />
                     ))}
                   </ul>
                 </section>
@@ -765,7 +800,13 @@ export default function MortgageGlossaryPage() {
                     {GLOSSARY_TERMS.map((term) => (
                       <div key={term.dtKey}>
                         <dt>
-                          <T k={term.dtKey}>{term.dt}</T>
+                          {term.href ? (
+                            <Link href={term.href}>
+                              <T k={term.dtKey}>{term.dt}</T>
+                            </Link>
+                          ) : (
+                            <T k={term.dtKey}>{term.dt}</T>
+                          )}
                         </dt>
                         <dd>
                           <T k={term.ddKey}>{term.dd}</T>
