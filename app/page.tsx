@@ -150,19 +150,27 @@ export default function HomePage() {
             <div className="service-link-grid">
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-briefcase-fill" />
-                <span>Business Loans</span>
+                <span>
+                  <T k="footer_business_loans">Business Loans</T>
+                </span>
               </Link>
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-pie-chart-fill" />
-                <span>Equity Financing</span>
+                <span>
+                  <T k="footer_equity_financing">Equity Financing</T>
+                </span>
               </Link>
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-rocket-takeoff-fill" />
-                <span>Venture Capital</span>
+                <span>
+                  <T k="footer_venture_capital">Venture Capital</T>
+                </span>
               </Link>
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-bank" />
-                <span>SBA Loans</span>
+                <span>
+                  <T k="footer_sba_loans">SBA Loans</T>
+                </span>
               </Link>
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-house-heart-fill" />
@@ -184,7 +192,9 @@ export default function HomePage() {
               </Link>
               <Link href="/full-service-mortgage-solution/">
                 <i className="bi bi-layers-fill" />
-                <span>Debt Consolidation</span>
+                <span>
+                  <T k="common_mortgage_debt_consolidation">Debt Consolidation</T>
+                </span>
               </Link>
               <Link href="/mortgages/home-equity-line-credit/">
                 <i className="bi bi-credit-card-2-front-fill" />

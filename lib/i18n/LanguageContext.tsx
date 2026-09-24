@@ -13,11 +13,12 @@ export const LANGS: Record<Lang, { label: string; short: string }> = {
   en: { label: "English", short: "EN" },
   fr: { label: "Français", short: "FR" },
   pa: { label: "ਪੰਜਾਬੀ", short: "PA" },
+  zh: { label: "中文", short: "ZH" },
 };
 
 /** Languages shown in the language switcher. Punjabi is hidden for now but its
  *  translations and the "pa" language code stay intact so it can be re-enabled later. */
-export const VISIBLE_LANGS: Lang[] = ["en", "fr"];
+export const VISIBLE_LANGS: Lang[] = ["en", "fr", "zh"];
 
 interface LanguageContextValue {
   lang: Lang;
