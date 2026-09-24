@@ -6074,6 +6074,10 @@ output {
   font-size: clamp(30px, 3vw, 42px);
 }
 
+#mortgage-options.info-block .section-kicker {
+  font-size: 20px;
+}
+
 .info-block p {
   color: var(--rdc-ink);
 }

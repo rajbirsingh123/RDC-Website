@@ -124,9 +124,6 @@ export default function FullServiceMortgageSolutionPage() {
                   <p className="section-kicker">
                     <T k="fsms_options_kicker">Mortgage Options</T>
                   </p>
-                  <h2>
-                    <T k="fsms_options_title">Choose product first.</T>
-                  </h2>
                   <p>
                     <T k="fsms_options_desc">
                       Most mortgage conversations become easier once the agent can identify the client&apos;s
