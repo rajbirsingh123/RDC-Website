@@ -5,7 +5,7 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 import { AboutContactForm } from "./AboutContactForm";
 
 const FoundingStoryAnimation = dynamic(
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   title: "About Us | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/about-us/") },
-  openGraph: { title: "About Us | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/about-us/") },
-  twitter: { title: "About Us | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "About Us | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/about-us/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "About Us | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function AboutUsPage() {

@@ -14,10 +14,21 @@ export function absoluteUrl(path: string): string {
   return `${SITE_URL}${clean}`;
 }
 
+/** Cities with a dedicated /mortgage-broker/<slug>/ local landing page — also used as the
+ *  sitewide areaServed list so the Organization entity names every market it serves. */
+export const SERVICE_AREA_CITIES: Array<{ name: string; slug: string }> = [
+  { name: "Oakville", slug: "oakville" },
+  { name: "Mississauga", slug: "mississauga" },
+  { name: "Burlington", slug: "burlington" },
+  { name: "Milton", slug: "milton" },
+  { name: "Brampton", slug: "brampton" },
+  { name: "Hamilton", slug: "hamilton" },
+];
+
 export function financialServiceJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": ["FinancialService", "MortgageBroker"],
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
@@ -31,11 +42,40 @@ export function financialServiceJsonLd() {
       postalCode: "L6M 4H1",
       addressCountry: "CA",
     },
+    identifier: [
+      {
+        "@type": "PropertyValue",
+        propertyID: "FSRA Mortgage Agent Licence",
+        value: "M25002134",
+      },
+      {
+        "@type": "PropertyValue",
+        propertyID: "Mortgage Alliance Brokerage Licence (Ontario)",
+        value: "10530",
+      },
+    ],
+    areaServed: [
+      { "@type": "State", name: "Ontario" },
+      ...SERVICE_AREA_CITIES.map((city) => ({ "@type": "City", name: city.name, containedInPlace: { "@type": "State", name: "Ontario" } })),
+    ],
     sameAs: [
       "https://instagram.com/royaldencapital",
       "https://www.linkedin.com/in/royal-den-capital-57753943a/",
       "https://www.mortgagealliance.com/en/",
     ],
+  };
+}
+
+/** Per-city "Service" JSON-LD for a /mortgage-broker/<slug>/ landing page — points back at the
+ *  single canonical Organization entity (@id #organization) rather than duplicating org data. */
+export function mortgageBrokerServiceJsonLd(cityName: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Mortgage Brokerage",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: { "@type": "City", name: cityName, containedInPlace: { "@type": "State", name: "Ontario" } },
+    name: `Mortgage Broker in ${cityName}, Ontario`,
   };
 }
 

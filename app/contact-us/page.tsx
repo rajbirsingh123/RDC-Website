@@ -5,7 +5,7 @@ import { LeadForm, type LeadFormFieldKeys, type LeadFormOption } from "@/compone
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T, THtml } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
   "Contact Royal Den Capital for a free mortgage or business funding consultation. Call 905-609-1818 or email info@royaldencapital.ca.";
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   title: "Contact Us | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/contact-us/") },
-  openGraph: { title: "Contact Us | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/contact-us/") },
-  twitter: { title: "Contact Us | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Contact Us | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/contact-us/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Contact Us | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 /** contact-us's form uses the same field set as the homepage's lead form (name/email/phone/

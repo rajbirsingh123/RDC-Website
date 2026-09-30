@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
-  "Royal Den Capital and Cashly hosted the Sales Growth Academy on August 29 at our GTA Office — sales training, lender insight, and growth-minded culture for mortgage professionals.";
+  "Royal Den Capital and Cashly hosted the Sales Growth Academy — sales training, lender insight, and growth-minded culture for mortgage professionals.";
 
 export const metadata: Metadata = {
   title: "Sales Growth Academy Recap | Royal Den Capital",

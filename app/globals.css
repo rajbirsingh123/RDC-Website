@@ -4438,6 +4438,24 @@ output {
   font-weight: 700;
 }
 
+.footer-service-areas {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-service-areas a {
+  display: inline;
+  margin-bottom: 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-service-areas a:hover {
+  color: var(--rdc-gold);
+}
+
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -5125,6 +5143,76 @@ output {
 .knowledge-section {
   padding: clamp(58px, 7vw, 96px) 0;
   background: var(--rdc-white);
+}
+
+.article-quote {
+  margin: 28px 0;
+  padding: 18px 24px;
+  border-left: 4px solid var(--rdc-gold);
+  background: var(--rdc-soft);
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--rdc-ink);
+  border-radius: 0 10px 10px 0;
+}
+
+.kh-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.kh-index-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  background: var(--rdc-white);
+  border: 1px solid var(--rdc-line);
+  border-radius: 16px;
+  box-shadow: var(--rdc-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kh-index-card:hover {
+  transform: translateY(-4px);
+}
+
+.kh-index-card .kh-index-category {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rdc-gold-dark);
+}
+
+.kh-index-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.kh-index-card h3 a {
+  color: var(--rdc-ink);
+  text-decoration: none;
+}
+
+.kh-index-card h3 a:hover {
+  color: var(--rdc-blue);
+}
+
+.kh-index-card p {
+  color: var(--rdc-muted);
+  margin: 0;
+}
+
+.kh-index-meta {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--rdc-muted);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .knowledge-layout {

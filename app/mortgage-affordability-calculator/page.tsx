@@ -3,7 +3,7 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { AffordabilityCalculator } from "@/components/calculators/AffordabilityCalculator";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
   "Estimate your mortgage affordability, maximum home price, monthly payment, mortgage insurance, and monthly housing expenses with Royal Den Capital.";
@@ -17,8 +17,9 @@ export const metadata: Metadata = {
     title: "Mortgage Affordability Calculator | Royal Den Capital",
     description: DESCRIPTION,
     url: PAGE_URL,
+    images: [DEFAULT_OG_IMAGE],
   },
-  twitter: { title: "Mortgage Affordability Calculator | Royal Den Capital", description: DESCRIPTION },
+  twitter: { title: "Mortgage Affordability Calculator | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const BREADCRUMB_JSON_LD = breadcrumbJsonLd([

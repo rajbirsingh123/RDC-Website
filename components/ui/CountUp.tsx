@@ -16,7 +16,9 @@ export function CountUp({
   as?: keyof JSX.IntrinsicElements;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const [text, setText] = useState(`${prefix}${(0).toFixed(decimals)}${suffix}`);
+  // Server-rendered (and no-JS) markup shows the real final value, not "0" — search engines,
+  // AI crawlers, and users with JS disabled should see the true number, not a placeholder.
+  const [text, setText] = useState(`${prefix}${to.toFixed(decimals)}${suffix}`);
 
   useEffect(() => {
     const el = ref.current;

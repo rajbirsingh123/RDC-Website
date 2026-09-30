@@ -10,7 +10,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T, THtml } from "@/lib/i18n/T";
 import { HOME_FAQ } from "@/data/homeFaq";
-import { absoluteUrl, faqPageJsonLd, financialServiceJsonLd, websiteJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, faqPageJsonLd, financialServiceJsonLd, websiteJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
   "Ontario mortgage broker comparing Canada's top lenders for better rates and faster approvals — home purchases, renewals, refinancing, and business financing.";
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   title: "Mortgage Broker in Ontario | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/") },
-  openGraph: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/") },
-  twitter: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const HOME_ORGANIZATION_JSON_LD = {
@@ -37,7 +37,6 @@ const HOME_ORGANIZATION_JSON_LD = {
     postalCode: "L6M 4H1",
     addressCountry: "CA",
   },
-  areaServed: { "@type": "State", name: "Ontario" },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -80,7 +79,7 @@ export default function HomePage() {
           <div className="container-xl">
             <div className="row g-4 align-items-center text-center text-lg-start">
               <div className="col-lg-4">
-                <img src="/assets/rdc-logo.png" alt="" className="band-logo" />
+                <img src="/assets/rdc-logo.png" alt="Royal Den Capital" className="band-logo" />
               </div>
               <div className="col-lg-6">
                 <p className="funding-total">
@@ -247,7 +246,8 @@ export default function HomePage() {
                 <p>
                   <T k="home_why_desc">
                     For more than 25 years, Royal Den Capital has helped clients compare lender options, secure
-                    competitive rates, and build mortgage strategies that fit real life.
+                    competitive rates, and build mortgage strategies that fit real life, with a 95% mortgage
+                    approval rate across purchase, renewal, and refinance files.
                   </T>
                 </p>
                 <ul className="check-list">

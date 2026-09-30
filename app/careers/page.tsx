@@ -5,7 +5,7 @@ import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { CareerForm } from "@/components/forms/CareerForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T, THtml } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
 import type { FaqItem } from "@/data/homeFaq";
 
 const DESCRIPTION =
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Careers | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/careers/") },
-  openGraph: { title: "Careers | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/careers/") },
-  twitter: { title: "Careers | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Careers | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/careers/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Careers | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const CAREER_FAQ: FaqItem[] = [

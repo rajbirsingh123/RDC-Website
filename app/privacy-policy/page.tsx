@@ -3,7 +3,7 @@ import Link from "next/link";
 import { RevealMain } from "@/components/ui/RevealMain";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T, THtml } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION = "How Royal Den Capital collects, uses, and protects your personal information when you use this website.";
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/privacy-policy/") },
-  openGraph: { title: "Privacy Policy | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/privacy-policy/") },
-  twitter: { title: "Privacy Policy | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Privacy Policy | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/privacy-policy/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Privacy Policy | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function PrivacyPolicyPage() {
@@ -69,43 +69,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s1_h2">1. Who We Are</T>
-              </h2>
-              <div className="legal-info-box">
-                <dl>
-                  <div>
-                    <dt>
-                      <T k="legal_label_legal_name">Legal Name</T>
-                    </dt>
-                    <dd>Royal Den Capital Ltd.</dd>
-                  </div>
-                  <div>
-                    <dt>
-                      <T k="legal_label_address">Address</T>
-                    </dt>
-                    <dd>Unit 1, 2483 Burnhamthorpe Rd W, Oakville, ON L6M 4H1, Canada</dd>
-                  </div>
-                  <div>
-                    <dt>
-                      <T k="legal_label_email">Email</T>
-                    </dt>
-                    <dd>
-                      <a href="mailto:info@royaldencapital.ca">info@royaldencapital.ca</a>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>
-                      <T k="legal_label_phone">Phone</T>
-                    </dt>
-                    <dd>
-                      <a href="tel:19056091818">905-609-1818</a>
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-
-              <h2>
-                <T k="pp_s2_h2">2. Information We Collect</T>
+                <T k="pp_s2_h2">1. Information We Collect</T>
               </h2>
               <p>
                 <THtml
@@ -127,7 +91,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s3_h2">3. How We Use Your Information</T>
+                <T k="pp_s3_h2">2. How We Use Your Information</T>
               </h2>
               <ul>
                 <li>
@@ -145,7 +109,7 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <h2>
-                <T k="pp_s4_h2">4. How Contact &amp; Newsletter Forms Work</T>
+                <T k="pp_s4_h2">3. How Contact &amp; Newsletter Forms Work</T>
               </h2>
               <p>
                 <THtml
@@ -155,7 +119,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s5_h2">5. Mortgage Calculators</T>
+                <T k="pp_s5_h2">4. Mortgage Calculators</T>
               </h2>
               <p>
                 <T k="pp_s5_p">
@@ -165,7 +129,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s6_h2">6. Sharing Your Information</T>
+                <T k="pp_s6_h2">5. Sharing Your Information</T>
               </h2>
               <p>
                 <T k="pp_s6_p_intro">We do not sell your personal information. We may share it only:</T>
@@ -186,7 +150,7 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <h2>
-                <T k="pp_s7_h2">7. Data Retention</T>
+                <T k="pp_s7_h2">6. Data Retention</T>
               </h2>
               <p>
                 <T k="pp_s7_p">
@@ -197,7 +161,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s8_h2">8. Security</T>
+                <T k="pp_s8_h2">7. Security</T>
               </h2>
               <p>
                 <T k="pp_s8_p">
@@ -207,7 +171,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s9_h2">9. Your Rights &amp; Choices</T>
+                <T k="pp_s9_h2">8. Your Rights &amp; Choices</T>
               </h2>
               <p>
                 <THtml
@@ -217,7 +181,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s10_h2">10. Children&apos;s Privacy</T>
+                <T k="pp_s10_h2">9. Children&apos;s Privacy</T>
               </h2>
               <p>
                 <T k="pp_s10_p">
@@ -228,7 +192,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s11_h2">11. Links to Other Websites</T>
+                <T k="pp_s11_h2">10. Links to Other Websites</T>
               </h2>
               <p>
                 <T k="pp_s11_p">
@@ -239,7 +203,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s12_h2">12. Changes to This Policy</T>
+                <T k="pp_s12_h2">11. Changes to This Policy</T>
               </h2>
               <p>
                 <T k="pp_s12_p">
@@ -249,7 +213,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s13_h2">13. Governing Law</T>
+                <T k="pp_s13_h2">12. Governing Law</T>
               </h2>
               <p>
                 <T k="pp_s13_p">
@@ -259,7 +223,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>
-                <T k="pp_s14_h2">14. Contact Us</T>
+                <T k="pp_s14_h2">13. Contact Us</T>
               </h2>
               <p>
                 <T k="pp_s14_p_intro">Questions about this Privacy Policy or your personal information can be directed to:</T>

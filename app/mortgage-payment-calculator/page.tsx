@@ -3,7 +3,7 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { PaymentCalculator } from "@/components/calculators/PaymentCalculator";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
   "Estimate mortgage payments, insurance, loan amount, interest cost, and yearly amortization with Royal Den Capital's mortgage payment calculator.";
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: "Mortgage Payment Calculator | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: PAGE_URL },
-  openGraph: { title: "Mortgage Payment Calculator | Royal Den Capital", description: DESCRIPTION, url: PAGE_URL },
-  twitter: { title: "Mortgage Payment Calculator | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Mortgage Payment Calculator | Royal Den Capital", description: DESCRIPTION, url: PAGE_URL, images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Mortgage Payment Calculator | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const BREADCRUMB_JSON_LD = breadcrumbJsonLd([

@@ -4,7 +4,7 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
 import { GLOSSARY_TERMS } from "@/data/glossaryTerms";
 
 const GLOSSARY_FAQ = GLOSSARY_TERMS.map((term) => ({
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   title: "Mortgage Glossary & Knowledge Hub | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/mortgage-glossary/") },
-  openGraph: { title: "Mortgage Glossary & Knowledge Hub | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/mortgage-glossary/") },
-  twitter: { title: "Mortgage Glossary & Knowledge Hub | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Mortgage Glossary & Knowledge Hub | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/mortgage-glossary/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Mortgage Glossary & Knowledge Hub | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const INDEX_LINKS: Array<{ href: string; key: string; fallback: string }> = [
@@ -207,13 +207,20 @@ export default function MortgageGlossaryPage() {
         <section className="page-hero knowledge-hero">
           <div className="container-xl text-center">
             <h1>
-              <T k="gl_h1">Knowledge Hub</T>
+              <T k="gl_h1">Mortgage Glossary</T>
             </h1>
             <p className="hero-lead mx-auto">
               <T k="gl_lead">
                 A plain-language guide to Canadian mortgages, from pre-approval to renewal, with the key terms, rules,
                 costs, and decisions explained in one place.
               </T>
+            </p>
+            <p className="mx-auto" style={{ maxWidth: 700 }}>
+              Looking for deeper dives on specific topics? Visit the{" "}
+              <Link href="/knowledge-hub/" style={{ color: "var(--rdc-gold)", fontWeight: 700 }}>
+                Knowledge Hub
+              </Link>{" "}
+              for in-depth articles on the stress test, CMHC insurance, renewals, and more.
             </p>
           </div>
         </section>

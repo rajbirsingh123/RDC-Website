@@ -3,7 +3,7 @@ import Link from "next/link";
 import { RevealMain } from "@/components/ui/RevealMain";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T, THtml } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION = "The rules and disclosures that govern your use of the Royal Den Capital website.";
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: "Terms & Conditions | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/terms-and-conditions/") },
-  openGraph: { title: "Terms & Conditions | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/terms-and-conditions/") },
-  twitter: { title: "Terms & Conditions | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Terms & Conditions | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/terms-and-conditions/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Terms & Conditions | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function TermsAndConditionsPage() {
@@ -46,15 +46,6 @@ export default function TermsAndConditionsPage() {
         <section className="legal-section">
           <div className="container-xl">
             <div className="legal-content">
-              <p
-                className="legal-lang-notice"
-                style={{ background: "rgba(13,92,184,0.08)", border: "1px solid rgba(13,92,184,0.2)", borderRadius: 8, padding: "14px 18px", fontWeight: 600 }}
-              >
-                <T k="legal_translation_notice">
-                  This page is also available in French and Punjabi for your convenience. If there is any discrepancy
-                  between language versions, the English version governs.
-                </T>
-              </p>
               <p className="legal-updated">
                 <T k="legal_updated_jan2026">Last updated: January 2026</T>
               </p>

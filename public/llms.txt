@@ -28,11 +28,41 @@ Core areas: residential mortgages (purchase, renewal, refinance), home equity pr
 - [Co-Equity Homeownership](https://royaldencapital.ca/mortgages/co-equity-homeownership-ourboro/): Shared-equity pathway to homeownership.
 - [Commercial Mortgages](https://royaldencapital.ca/mortgages/commercial-mortgages/): Financing for business-use, investment, or income-generating property.
 
+## Quick Answers
+
+- **What is a mortgage refinance?** Replacing or restructuring your existing mortgage before or at maturity, usually to access equity, consolidate debt, change amortization, or improve terms. May involve appraisal, legal work, and a prepayment penalty if done before the term ends.
+- **What is equity takeout?** Borrowing against the equity you've built in your home, up to typical lender limits (commonly around 80% loan-to-value), to fund renovations, investments, debt repayment, or other large expenses.
+- **How does renovation financing work?** Funds for a renovation are accessed through a refinance, equity takeout, HELOC, or a Purchase Plus Improvements mortgage at time of purchase, rather than paying entirely out of pocket.
+- **What is a Home Equity Line of Credit (HELOC)?** A revolving, secured line of credit against your home's equity that you can draw from and repay repeatedly, typically at a variable rate, offering more flexibility than a lump-sum loan.
+- **What do first-time home buyers need to know?** Minimum down payment starts at 5% on the first $500,000 of purchase price; mortgage loan insurance is required under 20% down; RRSP Home Buyers' Plan and First Home Savings Account (FHSA) funds can help with the down payment.
+- **Can I consolidate debt into my mortgage?** Yes. Refinancing or an equity takeout can combine higher-interest debts (credit cards, loans) into your mortgage at a typically lower interest rate, subject to qualification and available equity.
+- **Do I have to renew with my current lender?** No. At renewal you can accept your current lender's offer, negotiate, switch lenders, change term or payment frequency, or refinance — the first renewal letter is rarely the only option.
+- **Who qualifies for a reverse mortgage?** Generally homeowners aged 55+ who want to access home equity without required regular monthly payments; repayment is typically deferred until the home is sold, the owner moves, or passes away. You keep title to your home.
+- **Can I buy a second home or rental property?** Yes, subject to qualification, down payment rules (often higher for non-owner-occupied properties), and sometimes using equity from a primary residence via refinance or HELOC for the down payment.
+- **Can newcomers to Canada get a mortgage without Canadian credit history?** Yes, through dedicated newcomer mortgage programs, often with a larger down payment (commonly 10%+) and alternative documentation such as international credit history or income verification.
+- **What can a commercial mortgage finance?** Business-use, investment, or income-generating property — underwriting focuses more on property income, business strength, and risk than a typical residential file.
+- **How does construction financing work?** Funds are advanced in stages as construction progresses, confirmed by inspections or appraisals, rather than as a single lump sum at closing.
+- **What is a Purchase Plus Improvements mortgage?** A mortgage that lets qualified renovation costs be rolled into the purchase financing at closing, so improvements are funded without a separate loan.
+- **What is co-equity homeownership?** A shared-equity model where a co-investment partner contributes toward the down payment or purchase price in exchange for a share of the property's future value, reducing the amount a buyer needs to finance alone.
+
 ## Tools
 
 - [Mortgage Payment Calculator](https://royaldencapital.ca/mortgage-payment-calculator/): Estimate mortgage payments, insurance, and amortization.
 - [Mortgage Affordability Calculator](https://royaldencapital.ca/mortgage-affordability-calculator/): Estimate maximum affordable home price and monthly costs.
 - [Mortgage Glossary / Knowledge Hub](https://royaldencapital.ca/mortgage-glossary/): Plain-language answers on the Canadian mortgage process, qualification, stress test, down payments, and more.
+
+## Knowledge Hub Articles
+
+- [Knowledge Hub](https://royaldencapital.ca/knowledge-hub/): In-depth guides on Canadian mortgages — the stress test, CMHC insurance, first-time buyer programs, renewals, fixed vs. variable rates, HELOC vs. refinance, self-employed qualification, and newcomer mortgages, with author, publish date, and CMHC/OSFI sourcing on every article.
+
+## Local Service Areas
+
+- [Mortgage Broker in Oakville](https://royaldencapital.ca/mortgage-broker/oakville/): Local mortgage broker serving Oakville, ON (head office location).
+- [Mortgage Broker in Mississauga](https://royaldencapital.ca/mortgage-broker/mississauga/): Local mortgage broker serving Mississauga, ON.
+- [Mortgage Broker in Burlington](https://royaldencapital.ca/mortgage-broker/burlington/): Local mortgage broker serving Burlington, ON.
+- [Mortgage Broker in Milton](https://royaldencapital.ca/mortgage-broker/milton/): Local mortgage broker serving Milton, ON.
+- [Mortgage Broker in Brampton](https://royaldencapital.ca/mortgage-broker/brampton/): Local mortgage broker serving Brampton, ON.
+- [Mortgage Broker in Hamilton](https://royaldencapital.ca/mortgage-broker/hamilton/): Local mortgage broker serving Hamilton, ON.
 
 ## Apply
 

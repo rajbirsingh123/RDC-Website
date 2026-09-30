@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { MortgagePageTemplate } from "@/components/mortgages/MortgagePageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MORTGAGES, getMortgageData } from "@/data/mortgages";
-import { absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/site";
 
 export function generateStaticParams() {
   return MORTGAGES.map((mortgage) => ({ slug: mortgage.slug }));
@@ -13,12 +13,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const data = getMortgageData(params.slug);
   if (!data) return {};
   const pageUrl = absoluteUrl(`/mortgages/${data.slug}/`);
+  const image = data.hero.image.src ? absoluteUrl(data.hero.image.src) : DEFAULT_OG_IMAGE;
   return {
     title: data.metaTitle,
     description: data.metaDescription,
     alternates: { canonical: pageUrl },
-    openGraph: { title: data.metaTitle, description: data.metaDescription, url: pageUrl },
-    twitter: { title: data.metaTitle, description: data.metaDescription },
+    openGraph: { title: data.metaTitle, description: data.metaDescription, url: pageUrl, images: [image] },
+    twitter: { title: data.metaTitle, description: data.metaDescription, images: [image] },
   };
 }
 

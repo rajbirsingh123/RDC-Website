@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION = "Thanks for applying to Royal Den Capital -- an advisor will follow up shortly.";
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   robots: { index: false, follow: true },
   alternates: { canonical: absoluteUrl("/apply/thank-you/") },
-  openGraph: { title: "Thank You | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/apply/thank-you/") },
-  twitter: { title: "Thank You | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Thank You | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/apply/thank-you/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Thank You | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function ApplyThankYouPage() {

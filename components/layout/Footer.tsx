@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FOOTER_LINKS, FOOTER_SERVICES_FULL, FOOTER_SERVICES_SHORT } from "@/data/footer";
+import { SERVICE_AREA_LINKS } from "@/data/nav";
 import { T } from "@/lib/i18n/T";
 
 /** Routes using the short footer variant (matches the original site's per-page choice). */
@@ -35,6 +36,20 @@ export function Footer() {
             <small>
               <T k="footer_license_line">Lic No: M25002134, Mortgage Alliance ON Lic No. 10530 - Independently owned and operated</T>
             </small>
+            <div className="footer-service-areas">
+              <span>
+                <T k="footer_serving_label">Serving:</T>{" "}
+              </span>
+              {SERVICE_AREA_LINKS.map((item, index) => (
+                <span key={item.href}>
+                  <Link href={item.href}>
+                    {item.labelKey ? <T k={item.labelKey}>{item.fallbackLabel}</T> : item.fallbackLabel}
+                  </Link>
+                  {index < SERVICE_AREA_LINKS.length - 1 ? ", " : " "}
+                </span>
+              ))}
+              <T k="footer_serving_suffix">and across Ontario.</T>
+            </div>
           </div>
           <div className="col-sm-6 col-lg-3">
             <h3>

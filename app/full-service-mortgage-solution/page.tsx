@@ -4,17 +4,17 @@ import { RevealMain } from "@/components/ui/RevealMain";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { T } from "@/lib/i18n/T";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
+import { DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo/site";
 
 const DESCRIPTION =
-  "Full service mortgage solutions from Royal Den Capital for buyers, refinancing, renovation financing, renewals, investments, HELOCs, newcomers, bridge financing, and business expansion.";
+  "Full service mortgage solutions from Royal Den Capital: purchases, refinancing, renewals, HELOCs, renovation financing, newcomer programs, and business financing.";
 
 export const metadata: Metadata = {
   title: "Full Service Mortgage Solution | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/full-service-mortgage-solution/") },
-  openGraph: { title: "Full Service Mortgage Solution | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/full-service-mortgage-solution/") },
-  twitter: { title: "Full Service Mortgage Solution | Royal Den Capital", description: DESCRIPTION },
+  openGraph: { title: "Full Service Mortgage Solution | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/full-service-mortgage-solution/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Full Service Mortgage Solution | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const INDEX_LINKS = [
