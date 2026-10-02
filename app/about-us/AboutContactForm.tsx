@@ -6,8 +6,8 @@ import { T } from "@/lib/i18n/T";
 /**
  * About Us page's contact form: name / company / phone / email / subject / message. Different
  * field set than the homepage/contact-us lead form (has "Company", no "Services Required"
- * dropdown), so it isn't a fit for <LeadForm/> — kept local to this page. Same mailto: handoff
- * pattern as LeadForm (no backend), matching the original static site.
+ * dropdown), so it isn't a fit for <LeadForm/> — kept local to this page. Real POST to
+ * FormSubmit.co, same pattern as LeadForm/NewsletterForm/ApplyWizard (no backend).
  */
 export function AboutContactForm() {
   const [values, setValues] = useState({ name: "", company: "", phone: "", email: "", subject: "", message: "" });
@@ -15,17 +15,17 @@ export function AboutContactForm() {
   const update = (field: keyof typeof values) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setValues((prev) => ({ ...prev, [field]: event.target.value }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const subject = encodeURIComponent(values.subject || "Royal Den Capital inquiry");
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nCompany: ${values.company}\nPhone: ${values.phone}\nEmail: ${values.email}\n\n${values.message}`
-    );
-    window.location.href = `mailto:info@royaldencapital.ca?subject=${subject}&body=${body}`;
-  };
-
   return (
-    <form className="lead-form row g-3" onSubmit={handleSubmit}>
+    <form
+      className="lead-form row g-3"
+      action="https://formsubmit.co/info@royaldencapital.ca"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value={values.subject || "Royal Den Capital inquiry"} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={typeof window !== "undefined" ? `${window.location.origin}/apply/thank-you/` : "/apply/thank-you/"} />
+      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
       <div className="col-md-6">
         <label className="form-label" htmlFor="name">
           <T k="au_form_name">Name</T>

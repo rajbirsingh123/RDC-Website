@@ -5,8 +5,8 @@ import { T } from "@/lib/i18n/T";
 
 /**
  * Careers page's application form (#careerForm in the legacy site): name, email, phone, licence
- * status, experience, city, message. Builds a mailto: link client-side on submit, mirroring
- * legacy-site/script.js's #careerForm submit handler exactly (same subject/body format).
+ * status, experience, city, message. Real POST to FormSubmit.co, same pattern as
+ * LeadForm/NewsletterForm/ApplyWizard (no backend).
  */
 export function CareerForm() {
   const [values, setValues] = useState({
@@ -23,24 +23,18 @@ export function CareerForm() {
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setValues((prev) => ({ ...prev, [field]: event.target.value }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const applicantName = values.name || "Career applicant";
-    const subject = encodeURIComponent(`Career application - ${applicantName}`);
-    const body = encodeURIComponent(
-      `Name: ${values.name}\n` +
-        `Email: ${values.email}\n` +
-        `Phone: ${values.phone}\n` +
-        `City: ${values.city}\n` +
-        `Licence Status: ${values.licence}\n` +
-        `Experience: ${values.experience}\n\n` +
-        `Why RDC:\n${values.message}`
-    );
-    window.location.href = `mailto:info@royaldencapital.ca?subject=${subject}&body=${body}`;
-  };
-
   return (
-    <form className="career-form" id="careerForm" onSubmit={handleSubmit}>
+    <form
+      className="career-form"
+      id="careerForm"
+      action="https://formsubmit.co/info@royaldencapital.ca"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value={`Career application - ${values.name || "Career applicant"}`} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={typeof window !== "undefined" ? `${window.location.origin}/careers/thank-you/` : "/careers/thank-you/"} />
+      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
       <div className="row g-3">
         <div className="col-md-6">
           <label className="form-label" htmlFor="careerName">

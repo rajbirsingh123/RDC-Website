@@ -44,9 +44,10 @@ const DEFAULT_FIELD_KEYS: LeadFormFieldKeys = {
 };
 
 /**
- * Contact form: builds a mailto: link client-side, same as the original site (no backend).
- * `fieldKeys` and `needOptions` let a page reuse this component with its own i18n keys/copy
- * (e.g. contact-us uses cu_form_* keys and a different services list) without duplicating markup.
+ * Contact form: real POST to FormSubmit.co, same pattern as NewsletterForm/ApplyWizard (no
+ * backend of our own). `fieldKeys` and `needOptions` let a page reuse this component with its
+ * own i18n keys/copy (e.g. contact-us uses cu_form_* keys and a different services list) without
+ * duplicating markup.
  */
 export function LeadForm({
   fieldKeys = DEFAULT_FIELD_KEYS,
@@ -61,18 +62,17 @@ export function LeadForm({
   const update = (field: keyof typeof values) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setValues((prev) => ({ ...prev, [field]: event.target.value }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const subjectValue = values.subject || `Royal Den Capital inquiry - ${values.need}`;
-    const subject = encodeURIComponent(subjectValue);
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nNeed: ${values.need}\n\n${values.message}`
-    );
-    window.location.href = `mailto:info@royaldencapital.ca?subject=${subject}&body=${body}`;
-  };
-
   return (
-    <form className="lead-form row g-3" onSubmit={handleSubmit}>
+    <form
+      className="lead-form row g-3"
+      action="https://formsubmit.co/info@royaldencapital.ca"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value={values.subject || `Royal Den Capital inquiry - ${values.need}`} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={typeof window !== "undefined" ? `${window.location.origin}/apply/thank-you/` : "/apply/thank-you/"} />
+      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
       <div className="col-md-6">
         <label className="form-label" htmlFor="name">
           <T k={fieldKeys.name.key}>{fieldKeys.name.fallback}</T>
