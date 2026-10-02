@@ -29,7 +29,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `Mortgage Broker in Ontario | ${SITE_NAME}`,
+  title: `Best Mortgage Broker in Ontario | ${SITE_NAME}`,
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

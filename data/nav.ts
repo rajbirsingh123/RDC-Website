@@ -26,4 +26,7 @@ export const SERVICE_AREA_LINKS: NavLink[] = [
   { href: "/mortgage-broker/milton/", labelKey: "common_area_milton", fallbackLabel: "Milton" },
   { href: "/mortgage-broker/brampton/", labelKey: "common_area_brampton", fallbackLabel: "Brampton" },
   { href: "/mortgage-broker/hamilton/", labelKey: "common_area_hamilton", fallbackLabel: "Hamilton" },
+  { href: "/mortgage-broker/vaughan/", labelKey: "common_area_vaughan", fallbackLabel: "Vaughan" },
+  { href: "/mortgage-broker/richmond-hill/", labelKey: "common_area_richmond_hill", fallbackLabel: "Richmond Hill" },
+  { href: "/mortgage-broker/markham/", labelKey: "common_area_markham", fallbackLabel: "Markham" },
 ];

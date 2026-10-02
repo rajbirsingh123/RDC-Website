@@ -289,6 +289,141 @@ export const CITIES: CityPageData[] = [
       },
     ],
   },
+  {
+    slug: "vaughan",
+    name: "Vaughan",
+    region: "York Region",
+    metaTitle: "Mortgage Broker in Vaughan, ON | Royal Den Capital",
+    metaDescription:
+      "Vaughan mortgage broker comparing lenders for purchases, renewals, refinancing, and HELOCs across Woodbridge, Maple, Thornhill, and Kleinburg.",
+    heroLead:
+      "From Woodbridge to the Vaughan Metropolitan Centre, Royal Den Capital compares lender options for Vaughan buyers, owners, and business owners.",
+    intro: [
+      "Vaughan has grown from a cluster of distinct communities into one of the GTA's larger cities, and that history still shows in its housing stock. Established, close-knit neighbourhoods in Woodbridge and Maple sit alongside newer high-rise development around the Vaughan Metropolitan Centre (VMC) subway terminus, with estate properties in Kleinburg and Islington Woods rounding out the mix. Highway 400, 407, and 427 all run through or near Vaughan, making it a common choice for buyers balancing space with commute access to Toronto.",
+      "Royal Den Capital compares major banks, credit unions, and alternative and private lenders to build financing around the file in front of us, whether that's a first condo purchase near the VMC, a detached family home in Maple, or a larger estate property in Kleinburg.",
+    ],
+    market: {
+      heading: "The Vaughan housing market",
+      paragraphs: [
+        "Vaughan's older, established pockets in Woodbridge and Maple feature detached and semi-detached homes, often with larger lots, while the VMC area has brought a wave of newer condo towers requiring the same status certificate and condo-fee review as any high-rise purchase. Kleinburg and Islington Woods include larger, higher-value estate homes that sometimes call for a private or alternative lender when a property falls outside standard bank guidelines.",
+        "Vaughan also draws a significant share of multigenerational households and business owners, so we regularly work through how lenders treat co-borrower income, secondary suite income, and self-employed or business income when calculating what a client can qualify to borrow.",
+      ],
+    },
+    help: {
+      heading: "How we help Vaughan buyers and homeowners",
+      intro: "Condo, freehold, or estate property — we compare lender options so Vaughan clients see the trade-offs clearly before they commit.",
+      items: [
+        "First-time home buyer and condo purchase financing",
+        "Multigenerational household and co-borrower financing",
+        "Mortgage renewal and lender-switch comparisons",
+        "Refinancing, equity takeout, and debt consolidation",
+        "Financing for estate and higher-value properties",
+        "Commercial and business financing for Vaughan business owners",
+      ],
+    },
+    faq: [
+      {
+        question: "Can you help finance a higher-value estate home in Kleinburg?",
+        answer:
+          "Yes. Estate and higher-value properties sometimes fall outside standard bank guidelines and benefit from a private or alternative lender. We help position these files with a lender comfortable with the property and the loan amount.",
+      },
+      {
+        question: "Do condo fees affect how much I can borrow for a VMC condo purchase?",
+        answer:
+          "Yes. Lenders generally include 50% of monthly condo fees in your housing cost calculation for GDS/TDS qualification, which can affect your maximum mortgage amount on a Vaughan condo purchase.",
+      },
+    ],
+  },
+  {
+    slug: "richmond-hill",
+    name: "Richmond Hill",
+    region: "York Region",
+    metaTitle: "Mortgage Broker in Richmond Hill, ON | Royal Den Capital",
+    metaDescription:
+      "Richmond Hill mortgage broker comparing lenders for purchases, renewals, refinancing, and HELOCs across Oak Ridges, Mill Pond, Jefferson, and Bayview Hill.",
+    heroLead:
+      "Royal Den Capital compares lenders across Richmond Hill's established neighbourhoods and newer subdivisions to help clients secure competitive financing.",
+    intro: [
+      "Richmond Hill runs along the Yonge Street corridor and Highway 404, with established neighbourhoods like Mill Pond and Bayview Hill closer to the historic core, and newer subdivisions in Oak Ridges and Jefferson further north. That mix means Richmond Hill mortgage files range from character homes near the downtown core to recently built detached and townhome product in the city's growth areas.",
+      "Royal Den Capital works with major banks, credit unions, and alternative and private lenders to build financing around the file in front of us, whether that's a first-time purchase, a move-up to a larger family home, or a renewal on a long-held property.",
+    ],
+    market: {
+      heading: "The Richmond Hill housing market",
+      paragraphs: [
+        "Richmond Hill's established neighbourhoods near Yonge Street and Mill Pond include a mix of older detached homes and infill development, while Oak Ridges and Jefferson offer newer, more standardized subdivisions that tend to qualify more predictably through underwriting. Bayview Hill and areas near the Richmond Hill GO line also carry a strong base of move-up buyers and families seeking more space within commuting distance of Toronto.",
+        "Richmond Hill has a large and established immigrant and newcomer population, so we regularly support newcomer mortgage programs for clients with limited Canadian credit history, alongside self-employed and commission-income borrowers who need a lender willing to look past a T4.",
+      ],
+    },
+    help: {
+      heading: "How we help Richmond Hill buyers and owners",
+      intro: "From a first purchase to a mortgage renewal years later, we compare lender options so Richmond Hill clients see the trade-offs clearly.",
+      items: [
+        "First-time home buyer pre-approval and purchase financing",
+        "Newcomer to Canada mortgage programs",
+        "Self-employed and alternative income qualification",
+        "Mortgage renewal and lender-switch comparisons",
+        "Refinancing, equity takeout, and debt consolidation",
+        "Home Equity Line of Credit (HELOC)",
+      ],
+    },
+    faq: [
+      {
+        question: "Can I qualify for a Richmond Hill mortgage with limited Canadian credit history?",
+        answer:
+          "Often, yes, through newcomer-specific mortgage programs that rely on alternative documentation such as international credit references, rent history, and stable income in place of a full Canadian credit score.",
+      },
+      {
+        question: "Can you help finance a newer home in Oak Ridges or Jefferson?",
+        answer:
+          "Yes. Newer subdivision purchases in Oak Ridges and Jefferson typically qualify cleanly for standard lender programs, and we compare rates and terms across lenders to find the right fit for your file.",
+      },
+    ],
+  },
+  {
+    slug: "markham",
+    name: "Markham",
+    region: "York Region",
+    metaTitle: "Mortgage Broker in Markham, ON | Royal Den Capital",
+    metaDescription:
+      "Markham mortgage broker comparing lenders for purchases, renewals, refinancing, and commercial mortgages across Unionville, Cornell, Angus Glen, and Milliken.",
+    heroLead:
+      "From Unionville's historic main street to Markham's tech corridor, Royal Den Capital compares lender options for Markham buyers and business owners.",
+    intro: [
+      "Markham pairs one of Ontario's larger technology and business employment bases with a wide range of housing, from the heritage streetscape of Unionville to newer master-planned communities in Cornell and Angus Glen, plus a steady supply of condos and townhomes near Highway 404, 407, and the Markham GO corridor. That range means Markham mortgage files vary from standard resale purchases to new-build and pre-construction files with builder deposit structures and Tarion timelines.",
+      "Royal Den Capital works with major banks, credit unions, and alternative and private lenders to build financing around Markham clients, including a large base of business owners, self-employed professionals, and newcomers drawn to the city's employment base and established communities.",
+    ],
+    market: {
+      heading: "The Markham housing market",
+      paragraphs: [
+        "Unionville and other established Markham neighbourhoods offer a mix of older detached homes and more recent infill, while Cornell, Angus Glen, and other newer communities provide standardized detached, semi-detached, and townhome product that tends to qualify predictably through underwriting. Markham's condo supply, concentrated near transit and employment corridors, brings the usual status certificate and condo-fee considerations into GDS/TDS qualification.",
+        "Markham's large base of business owners and self-employed residents means we regularly work through stated-income and alternative lender programs, as well as newcomer mortgage programs for Markham's significant newcomer population.",
+      ],
+    },
+    help: {
+      heading: "How we help Markham buyers and business owners",
+      intro: "From a first condo purchase to commercial financing for a Markham business, we compare lender options built around your situation.",
+      items: [
+        "First-time home buyer and condo purchase financing",
+        "Newcomer to Canada mortgage programs",
+        "Self-employed and alternative income qualification",
+        "Mortgage renewal and lender-switch comparisons",
+        "Refinancing, equity takeout, and debt consolidation",
+        "Commercial mortgages for Markham business owners",
+      ],
+    },
+    faq: [
+      {
+        question: "Can self-employed business owners in Markham qualify for a mortgage?",
+        answer:
+          "Often, yes. Self-employed borrowers can qualify using two years of tax returns and business financials through traditional lenders, or through stated-income programs with alternative lenders if the business is newer. We review the file to find the best-fit lender.",
+      },
+      {
+        question: "Do you help with commercial mortgages for Markham businesses?",
+        answer:
+          "Yes. We compare commercial lender options for Markham business owners purchasing or refinancing commercial property, factoring in the business's financials alongside the property itself.",
+      },
+    ],
+  },
 ];
 
 export function getCityData(slug: string): CityPageData | undefined {

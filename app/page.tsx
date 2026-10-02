@@ -16,11 +16,11 @@ const DESCRIPTION =
   "Ontario mortgage broker comparing Canada's top lenders for better rates and faster approvals — home purchases, renewals, refinancing, and business financing.";
 
 export const metadata: Metadata = {
-  title: "Mortgage Broker in Ontario | Royal Den Capital",
+  title: "Best Mortgage Broker in Ontario | Royal Den Capital",
   description: DESCRIPTION,
   alternates: { canonical: absoluteUrl("/") },
-  openGraph: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/"), images: [DEFAULT_OG_IMAGE] },
-  twitter: { title: "Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
+  openGraph: { title: "Best Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, url: absoluteUrl("/"), images: [DEFAULT_OG_IMAGE] },
+  twitter: { title: "Best Mortgage Broker in Ontario | Royal Den Capital", description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
 };
 
 const HOME_ORGANIZATION_JSON_LD = {
