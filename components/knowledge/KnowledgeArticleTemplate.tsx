@@ -55,9 +55,9 @@ export function KnowledgeArticleTemplate({ article }: { article: KnowledgeHubArt
           <p className="section-kicker">{article.category}</p>
           <h1>{article.title}</h1>
           <p className="hero-lead mx-auto">{article.excerpt}</p>
-          <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 text-muted mt-3">
+          <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 knowledge-byline mt-3">
             <span>
-              By <strong>{article.author}</strong> ({article.authorRole})
+              By <strong>{article.author}</strong>
             </span>
             <span aria-hidden="true">·</span>
             <time dateTime={article.datePublished}>{formatDate(article.datePublished)}</time>

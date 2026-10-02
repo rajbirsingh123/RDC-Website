@@ -5140,6 +5140,10 @@ output {
     url("/assets/about-office.jpg") center / cover;
 }
 
+.knowledge-byline {
+  color: rgba(255, 255, 255, 0.84);
+}
+
 .knowledge-section {
   padding: clamp(58px, 7vw, 96px) 0;
   background: var(--rdc-white);
