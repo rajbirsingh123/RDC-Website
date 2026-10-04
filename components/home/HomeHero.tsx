@@ -46,7 +46,7 @@ export function HomeHero() {
           <div className="col-lg-5">
             <div className="hero-side">
               <h2 className="hero-side-heading">
-                <T k="home_hero_why_rdc">Why RDC?</T>
+                <T k="home_hero_why_rdc">Why RD Capital?</T>
               </h2>
               <div className="hero-points" aria-label="Royal Den Capital benefits">
                 <span>

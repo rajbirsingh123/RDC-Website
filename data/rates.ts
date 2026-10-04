@@ -67,7 +67,7 @@ export async function fetchHomeRates(): Promise<HomeRates> {
 // Bank of Canada Valet API — free, official, no key required. These are
 // "posted" rack rates from the six major chartered banks, NOT a negotiated
 // broker rate, so they're shown separately as a market reference rather than
-// mixed into RDC's own featured rates above.
+// mixed into RD Capital's own featured rates above.
 // Docs: https://www.bankofcanada.ca/valet/docs
 //
 // There's no published "posted variable mortgage rate" series — variable

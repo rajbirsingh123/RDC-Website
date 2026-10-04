@@ -12,7 +12,7 @@
    already carry a real photo (the mortgage detail heroes).
 
    A separate ".hero-logo-story" container (data-logo-src="...") renders the
-   real RDC crest with its own looping story: a gold shield ring draws in,
+   real RD Capital crest with its own looping story: a gold shield ring draws in,
    the crest reveals bottom-to-top like its own tree growing, a few leaf
    sparks drift off the canopy, a trend-arrow swoosh runs through the
    growth-chart area, then it all erases and repeats.
@@ -272,7 +272,7 @@
   }
 
   // The real, separated crest artwork (cropped from the client-supplied
-  // "RDC Logo -- Separated Elements" sheet) used to build the story piece by
+  // "RD Capital Logo -- Separated Elements" sheet) used to build the story piece by
   // piece instead of the old hand-drawn SVG sketch. Positions are percentages
   // of the .hero-logo-story container, carried over from where the sketch
   // version placed each shape, so the choreography still lines up: two

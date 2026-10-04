@@ -34,8 +34,8 @@ export default function EventsPage() {
           <div className="container-xl">
             <p className="section-kicker">Royal Den Capital</p>
             <h1>Events</h1>
-            <p className="events-hub-lead">Training sessions, growth academies, and community moments from RDC and our partners.</p>
-            <div className="careers-facts" aria-label="What RDC events cover">
+            <p className="events-hub-lead">Training sessions, growth academies, and community moments from RD Capital and our partners.</p>
+            <div className="careers-facts" aria-label="What RD Capital events cover">
               <span>
                 <i className="bi bi-graph-up-arrow" /> Sales Training
               </span>
@@ -78,13 +78,13 @@ export default function EventsPage() {
                 <h3>
                   <Link href="/events/sales-growth-academy/">Sales Growth Academy</Link>
                 </h3>
-                <p>RDC and Cashly brought mortgage professionals together for six hours of sales training, lender insight, and growth-minded conversation.</p>
+                <p>RD Capital and Cashly brought mortgage professionals together for six hours of sales training, lender insight, and growth-minded conversation.</p>
                 <div className="event-featured-points">
                   <span>
                     <i className="bi bi-graph-up-arrow" /> Sales Growth Training
                   </span>
                   <span>
-                    <i className="bi bi-bank" /> RDC × Cashly Partnership Address
+                    <i className="bi bi-bank" /> RD Capital × Cashly Partnership Address
                   </span>
                   <span>
                     <i className="bi bi-people-fill" /> Roundtable &amp; Networking
@@ -108,10 +108,10 @@ export default function EventsPage() {
           <div className="container-xl d-flex flex-wrap align-items-center justify-content-between gap-4">
             <div>
               <h2>Want to know about the next event?</h2>
-              <p>Be the first to hear when RDC and our partners announce the next training session or growth academy.</p>
+              <p>Be the first to hear when RD Capital and our partners announce the next training session or growth academy.</p>
             </div>
             <form className="newsletter-form" action="https://formsubmit.co/info@royaldencapital.ca" method="POST">
-              <input type="hidden" name="_subject" value="RDC Events - notify me next time" />
+              <input type="hidden" name="_subject" value="RD Capital Events - notify me next time" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
               <input className="form-control form-control-lg" type="text" name="name" placeholder="Name" required />

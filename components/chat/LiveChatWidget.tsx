@@ -232,7 +232,7 @@ export function LiveChatWidget() {
           <div className="chat-messages" role="log" aria-live="polite" ref={messagesRef}>
             {state.messages.map((message, index) => (
               <div key={index} className={`chat-message ${message.sender === "user" ? "from-user" : "from-bot"}`}>
-                <span>{message.sender === "user" ? "You" : "RDC Assistant"}</span>
+                <span>{message.sender === "user" ? "You" : "RD Capital Assistant"}</span>
                 <p>{message.text}</p>
               </div>
             ))}

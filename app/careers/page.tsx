@@ -132,7 +132,7 @@ export default function CareersPage() {
           <div className="container-xl">
             <div className="section-heading text-center">
               <p className="section-kicker">
-                <T k="cr_why_kicker">Why Join RDC</T>
+                <T k="cr_why_kicker">Why Join RD Capital</T>
               </p>
               <h2>
                 <T k="cr_why_h2">A brokerage environment built for closers.</T>
@@ -237,7 +237,7 @@ export default function CareersPage() {
                 </h2>
                 <p className="career-growth-lead">
                   <T k="cr_growth_lead">
-                    RDC is built for people who want more than a desk and a licence. Our environment brings agents
+                    RD Capital is built for people who want more than a desk and a licence. Our environment brings agents
                     into professional rooms, real conversations, lender education, market insight, and sales
                     momentum.
                   </T>
@@ -285,7 +285,7 @@ export default function CareersPage() {
                   </h2>
                   <p>
                     <T k="cr_how_p">
-                      RDC is built for mortgage professionals who want structure without losing the independence that
+                      RD Capital is built for mortgage professionals who want structure without losing the independence that
                       makes commission-based work rewarding.
                     </T>
                   </p>
@@ -441,7 +441,7 @@ export default function CareersPage() {
           <div className="container-xl">
             <div className="section-heading text-center">
               <p className="section-kicker">
-                <T k="cr_std_kicker">The RDC Standard</T>
+                <T k="cr_std_kicker">The RD Capital Standard</T>
               </p>
               <h2>
                 <T k="cr_std_h2">Independent work, professional expectations.</T>

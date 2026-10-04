@@ -105,7 +105,7 @@ export function BankPostedRatesBlock() {
           <div
             className="rate-savings-card bpr-savings-card is-visible"
             role="img"
-            aria-label={`Example RDC lender comparison: an illustrative negotiated rate of ${exampleNegotiatedRate.toFixed(
+            aria-label={`Example RD Capital lender comparison: an illustrative negotiated rate of ${exampleNegotiatedRate.toFixed(
               2
             )}% versus the live ${featuredLabel} Bank of Canada reference rate of ${featuredRate.toFixed(2)}%. Estimated savings are about $${Math.round(
               estimatedMonthlySavings
@@ -114,7 +114,7 @@ export function BankPostedRatesBlock() {
             <div className="rsc-top">
               <div className="rsc-lender">
                 <img src="/assets/rdc-logo.png" alt="" aria-hidden="true" />
-                <span>RDC&apos;s Lenders</span>
+                <span>RD Capital&apos;s Lenders</span>
               </div>
               <div className="rsc-save-bubble">
                 <span className="rsc-save-label">Est. Save</span>
@@ -172,7 +172,7 @@ export function BankPostedRatesBlock() {
               </div>
             </div>
             <p className="rsc-caption">
-              Uses live Bank of Canada data as of {formatAsOfDate(asOfDate)} and an example RDC negotiated discount.
+              Uses live Bank of Canada data as of {formatAsOfDate(asOfDate)} and an example RD Capital negotiated discount.
               Actual rates and savings depend on your file.
             </p>
           </div>

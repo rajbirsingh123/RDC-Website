@@ -15,7 +15,7 @@ export const ABOUT_LINKS: NavLink[] = [
   { href: "/mortgage-glossary/", labelKey: "common_mortgage_glossary", fallbackLabel: "Mortgage Glossary" },
   { href: "/knowledge-hub/", labelKey: "common_nav_knowledge_hub", fallbackLabel: "Knowledge Hub" },
   { href: "/about-us/#story", labelKey: "common_nav_our_story", fallbackLabel: "Our Story" },
-  { href: "/about-us/#why-rdc", labelKey: "common_nav_why_rdc", fallbackLabel: "Why RDC" },
+  { href: "/about-us/#why-rdc", labelKey: "common_nav_why_rdc", fallbackLabel: "Why RD Capital" },
 ];
 
 /** /mortgage-broker/<slug>/ local landing pages — shown in the footer's "Areas We Serve" list. */

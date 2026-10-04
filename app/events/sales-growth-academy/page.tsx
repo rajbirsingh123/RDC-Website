@@ -48,11 +48,11 @@ const EVENT_JSON_LD = {
 };
 
 const TIMELINE = [
-  { time: "1:00 PM", h: "Doors Open & Welcome", p: "Guests checked in and settled in ahead of opening remarks from RDC and Cashly leadership." },
+  { time: "1:00 PM", h: "Doors Open & Welcome", p: "Guests checked in and settled in ahead of opening remarks from RD Capital and Cashly leadership." },
   { time: "Early Afternoon", h: "Sales Growth Training", p: "A hands-on session on structuring conversations, handling objections, and closing with confidence." },
-  { time: "Mid-Afternoon", h: "RDC × Cashly Partnership Address", p: "Leadership from both sides spoke on where lending expertise meets modern growth tools." },
+  { time: "Mid-Afternoon", h: "RD Capital × Cashly Partnership Address", p: "Leadership from both sides spoke on where lending expertise meets modern growth tools." },
   { time: "Late Afternoon", h: "Roundtable & Networking", p: "Smaller group conversations gave attendees room to ask questions and trade notes with peers." },
-  { time: "6:00 PM", h: "Closing Remarks & Next Steps", p: "The academy wrapped with a look at what's next for RDC's growth-minded community." },
+  { time: "6:00 PM", h: "Closing Remarks & Next Steps", p: "The academy wrapped with a look at what's next for RD Capital's growth-minded community." },
 ];
 
 export default function SalesGrowthAcademyPage() {
@@ -108,7 +108,7 @@ export default function SalesGrowthAcademyPage() {
                   Sales Growth Academy
                 </li>
               </ol>
-              <p className="section-kicker">RDC × Cashly Present</p>
+              <p className="section-kicker">RD Capital × Cashly Present</p>
               <h1>Sales Growth Academy</h1>
               <p className="event-hero-lead">The story of one afternoon that raised the bar.</p>
 
@@ -127,7 +127,7 @@ export default function SalesGrowthAcademyPage() {
                   <span className="event-glass-divider" aria-hidden="true" />
                   <span>
                     <i className="bi bi-people-fill" />
-                    RDC × Cashly leadership
+                    RD Capital × Cashly leadership
                   </span>
                 </div>
               </div>
@@ -150,14 +150,14 @@ export default function SalesGrowthAcademyPage() {
                 <span className="event-chapter-label" data-chapter-index="1" data-chapter-name="The Why">
                   Chapter One — The Why
                 </span>
-                <h2>Why RDC built the Sales Growth Academy</h2>
+                <h2>Why RD Capital built the Sales Growth Academy</h2>
                 <p className="lead">
                   Royal Den Capital has spent more than 25 years helping mortgage professionals close with
                   confidence. Partnering with Cashly, we built a half-day academy to hand that experience straight
                   to the people doing the selling.
                 </p>
                 <p>
-                  Cashly joined as our growth and technology partner for the day, pairing RDC&apos;s lending
+                  Cashly joined as our growth and technology partner for the day, pairing RD Capital&apos;s lending
                   expertise with a sharper, more modern lens on building a mortgage business — from the pitch to
                   the pipeline.
                 </p>
@@ -176,10 +176,10 @@ export default function SalesGrowthAcademyPage() {
               <div className="col-lg-5">
                 <div className="career-teaser-points" style={{ margin: 0 }}>
                   <span>
-                    <i className="bi bi-check-circle-fill" /> Hosted at RDC&apos;s GTA Office
+                    <i className="bi bi-check-circle-fill" /> Hosted at RD Capital&apos;s GTA Office
                   </span>
                   <span>
-                    <i className="bi bi-check-circle-fill" /> Led jointly by RDC and Cashly leadership
+                    <i className="bi bi-check-circle-fill" /> Led jointly by RD Capital and Cashly leadership
                   </span>
                   <span>
                     <i className="bi bi-check-circle-fill" /> Built for agents who take performance seriously
@@ -205,7 +205,7 @@ export default function SalesGrowthAcademyPage() {
             <div className="event-photo-grid">
               <div className="event-photo-card">
                 <img src="/assets/rdc-growth-event-room.jpeg" alt="Royal Den Capital event room set up for the Sales Growth Academy" loading="lazy" />
-                <span className="event-photo-caption">The room fills in ahead of the RDC × Cashly welcome.</span>
+                <span className="event-photo-caption">The room fills in ahead of the RD Capital × Cashly welcome.</span>
               </div>
               <div className="event-photo-card">
                 <img src="/assets/rdc-growth-event-training.jpeg" alt="Mortgage professionals attending Sales Growth Academy training" loading="lazy" />
@@ -255,7 +255,7 @@ export default function SalesGrowthAcademyPage() {
                 <h3>Royal Den Capital Leadership</h3>
                 <p>Brought the lending playbook — how to structure files, read the market, and build a mortgage business that lasts.</p>
                 <Link href="/about-us/">
-                  More on RDC <i className="bi bi-arrow-right" />
+                  More on RD Capital <i className="bi bi-arrow-right" />
                 </Link>
               </div>
               <div className="event-speaker-card">
@@ -304,7 +304,7 @@ export default function SalesGrowthAcademyPage() {
           <div className="container-xl d-flex flex-wrap align-items-center justify-content-between gap-4">
             <div>
               <h2>Want in on the next Sales Growth Academy?</h2>
-              <p>Be the first to know when RDC and Cashly announce the next session — training, lender insight, and a room full of people who take growth seriously.</p>
+              <p>Be the first to know when RD Capital and Cashly announce the next session — training, lender insight, and a room full of people who take growth seriously.</p>
             </div>
             <form className="newsletter-form" action="https://formsubmit.co/info@royaldencapital.ca" method="POST">
               <input type="hidden" name="_subject" value="Sales Growth Academy - notify me next time" />
@@ -328,7 +328,7 @@ export default function SalesGrowthAcademyPage() {
                 All Events <i className="bi bi-grid-fill" />
               </Link>
               <Link href="/careers/">
-                <i className="bi bi-briefcase-fill" /> Explore Careers at RDC
+                <i className="bi bi-briefcase-fill" /> Explore Careers at RD Capital
               </Link>
               <Link href="/apply/">
                 <i className="bi bi-chat-dots-fill" /> Let&apos;s Talk

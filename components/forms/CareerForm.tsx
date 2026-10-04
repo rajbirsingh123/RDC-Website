@@ -151,7 +151,7 @@ export function CareerForm() {
         </div>
         <div className="col-12">
           <label className="form-label" htmlFor="careerMessage">
-            <T k="cr_form_why">Why do you want to join RDC?</T>
+            <T k="cr_form_why">Why do you want to join RD Capital?</T>
           </label>
           <textarea className="form-control" id="careerMessage" name="message" rows={5} value={values.message} onChange={update("message")} />
         </div>
